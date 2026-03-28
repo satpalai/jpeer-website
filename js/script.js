@@ -57,10 +57,11 @@ const WEB3FORMS_KEY = '77006307-dbcf-4b2c-b606-cbc303a742ea';
 
 // Subject lines for each form (used in email notifications)
 const FORM_SUBJECTS = {
-    contactForm:  'New Care Enquiry — jpeerhealth.com',
-    callbackForm: 'Callback Request — jpeerhealth.com',
-    enquiryForm:  'New Care Enquiry — jpeerhealth.com',
-    guideForm:    'Home Care Guide Download Request',
+    contactForm:        'New Care Enquiry — jpeerhealth.com',
+    callbackForm:       'Callback Request — jpeerhealth.com',
+    enquiryForm:        'New Care Enquiry — jpeerhealth.com',
+    guideForm:          'Home Care Guide Download Request',
+    pricingEnquiryForm: 'Pricing Enquiry — jpeerhealth.com',
 };
 
 /**
@@ -137,7 +138,7 @@ async function submitForm(form) {
 }
 
 // Attach handler to all forms on the page
-['contactForm', 'callbackForm', 'enquiryForm', 'guideForm'].forEach(id => {
+['contactForm', 'callbackForm', 'enquiryForm', 'guideForm', 'pricingEnquiryForm'].forEach(id => {
     const form = document.getElementById(id);
     if (form) {
         form.addEventListener('submit', e => {

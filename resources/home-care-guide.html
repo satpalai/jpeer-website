@@ -47,7 +47,10 @@
                 <div style="background:var(--off-white);border-radius:16px;padding:2.5rem;">
                     <h2 style="font-size:1.2rem;margin-bottom:0.5rem;">Send me the free guide</h2>
                     <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem;">We'll email it to you immediately. No spam, ever.</p>
-                    <form style="display:flex;flex-direction:column;gap:1rem;" action="#" method="post" novalidate>
+                    <form id="guideForm" style="display:flex;flex-direction:column;gap:1rem;" novalidate>
+                        <input type="hidden" name="access_key" value="77006307-dbcf-4b2c-b606-cbc303a742ea">
+                        <input type="hidden" name="subject" value="Home Care Guide Download Request — jpeerhealth.com">
+                        <input type="checkbox" name="botcheck" style="display:none;">
                         <div><label for="guide-name" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.35rem;">Full name <span style="color:var(--blue);">*</span></label><input id="guide-name" name="name" type="text" required style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;background:white;" placeholder="Your name"></div>
                         <div><label for="guide-email" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.35rem;">Email address <span style="color:var(--blue);">*</span></label><input id="guide-email" name="email" type="email" required style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;background:white;" placeholder="you@example.com"></div>
                         <div><label for="guide-phone" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.35rem;">Phone number <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label><input id="guide-phone" name="phone" type="tel" style="width:100%;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;background:white;" placeholder="04xx xxx xxx"></div>
