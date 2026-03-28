@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | J.PEER Health — Heartfelt Care</title>
+    <meta name="description" content="J.PEER Health privacy policy. How we collect, use and protect your personal information in accordance with the Australian Privacy Act 1988.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* === UTILITY PAGE STYLES === */
+        .util-hero {
+            padding-top: 88px;
+            background: linear-gradient(145deg, var(--white) 0%, var(--blue-50) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .util-hero-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem 1.25rem 2.5rem;
+        }
+        .util-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .util-breadcrumb a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .util-breadcrumb a:hover { text-decoration: underline; }
+        .util-breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .util-hero h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 0.65rem;
+        }
+        .util-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .util-meta strong { color: var(--text-sub); font-weight: 500; }
+
+        /* Content layout */
+        .util-body {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem 1.25rem 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+        .util-content { max-width: 780px; }
+        .util-toc {
+            display: none;
+        }
+
+        /* Prose */
+        .util-content h2 {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.015em;
+            margin: 2.25rem 0 0.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .util-content h2:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .util-content p {
+            font-size: 0.97rem;
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .util-content ul,
+        .util-content ol {
+            margin: 0.5rem 0 1rem 1.25rem;
+        }
+        .util-content li {
+            font-size: 0.97rem;
+            color: var(--text-sub);
+            line-height: 1.75;
+            margin-bottom: 0.35rem;
+        }
+        .util-content a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .util-content a:hover { text-decoration: underline; }
+        .util-content strong { color: var(--text); font-weight: 600; }
+
+        /* Info box */
+        .info-box {
+            background: var(--blue-50);
+            border: 1px solid var(--blue-light);
+            border-left: 3px solid var(--blue);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .info-box p {
+            margin-bottom: 0;
+            font-size: 0.92rem;
+            color: var(--text-sub);
+        }
+        .info-box strong { color: var(--navy); }
+
+        /* Contact box */
+        .contact-box {
+            background: var(--navy);
+            border-radius: 14px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+            color: white;
+        }
+        .contact-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+        .contact-box p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.65;
+            margin-bottom: 0.5rem;
+        }
+        .contact-box a {
+            color: var(--blue-light);
+            font-weight: 600;
+        }
+        .contact-box a:hover { color: white; }
+
+        /* TOC sidebar — desktop only */
+        @media (min-width: 1024px) {
+            .util-body {
+                grid-template-columns: 1fr 260px;
+                gap: 4rem;
+                padding: 4rem 2rem 5rem;
+            }
+            .util-content {
+                max-width: 100%;
+            }
+            .util-toc {
+                display: block;
+                position: sticky;
+                top: 108px;
+                background: var(--off-white);
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                padding: 1.5rem;
+            }
+            .util-toc-heading {
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--text-muted);
+                margin-bottom: 0.85rem;
+            }
+            .util-toc ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.1rem;
+            }
+            .util-toc li a {
+                display: block;
+                font-size: 0.82rem;
+                color: var(--text-sub);
+                text-decoration: none;
+                padding: 0.35rem 0.5rem;
+                border-radius: 6px;
+                line-height: 1.4;
+                transition: all 0.15s;
+            }
+            .util-toc li a:hover {
+                color: var(--blue);
+                background: var(--blue-50);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .util-hero-inner { padding: 3.5rem 2rem 3rem; }
+        }
+    </style>
+    <!-- LocalBusiness schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "J.PEER Health",
+        "description": "Compassionate home care services in Melbourne's south-east, delivered in your language.",
+        "url": "https://jpeerhealth.com",
+        "telephone": "+61469371121",
+        "email": "Care@Jpeerhealth.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dandenong",
+            "addressRegion": "VIC",
+            "addressCountry": "AU"
+        },
+        "areaServed": ["Dandenong","Berwick","Cranbourne","Clyde","Noble Park","Carrum Downs","Narre Warren","Hallam","Endeavour Hills","Pakenham"],
+        "openingHours": "Mo-Su 00:00-24:00"
+    }
+    </script>
+    <!-- BreadcrumbList schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jpeerhealth.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://jpeerhealth.com/privacy-policy.html" }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo" aria-label="J.PEER Health — Home">
+                <img src="images/logo-black.png" alt="J.PEER Health — Heartfelt Care" height="56">
+            </a>
+
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about/our-story.html" class="nav-link">About</a>
+                <a href="/services/personal-care.html" class="nav-link">Services</a>
+                <a href="/areas/" class="nav-link">Areas</a>
+                <a href="/pricing.html" class="nav-link">Pricing</a>
+                <a href="/resources/blog.html" class="nav-link">Resources</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:0469371121" class="header-phone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    0469 371 121
+                </a>
+                <a href="/contact.html" class="btn-header">Talk to Us</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile nav -->
+    <nav class="nav-mobile" id="mobileNav" aria-label="Mobile navigation">
+        <a href="/">Home</a>
+        <a href="/about/our-story.html">About Us</a>
+        <a href="/services/personal-care.html">Services</a>
+        <a href="/areas/">Areas We Serve</a>
+        <a href="/languages/hindi-home-care-melbourne.html">Care in Your Language</a>
+        <a href="/pricing.html">Pricing &amp; Fees</a>
+        <a href="/resources/blog.html">Resources</a>
+        <a href="/contact.html">Contact</a>
+        <a href="tel:0469371121" class="nav-mobile-phone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call 0469 371 121
+        </a>
+    </nav>
+
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="util-hero" aria-label="Privacy Policy">
+        <div class="util-hero-inner">
+            <nav class="util-breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>Privacy Policy</span>
+            </nav>
+            <h1>Privacy Policy</h1>
+            <p class="util-meta"><strong>Last updated:</strong> March 2026 &nbsp;·&nbsp; J.PEER Health Pty Ltd (ABN 16 683 516 761)</p>
+        </div>
+    </section>
+
+
+    <!-- ===================== CONTENT ===================== -->
+    <main>
+        <div class="util-body">
+
+            <!-- Table of contents (desktop sidebar) -->
+            <aside class="util-toc" aria-label="Table of contents">
+                <p class="util-toc-heading">On this page</p>
+                <ol>
+                    <li><a href="#introduction">1. Introduction</a></li>
+                    <li><a href="#what-we-collect">2. What we collect</a></li>
+                    <li><a href="#how-we-collect">3. How we collect</a></li>
+                    <li><a href="#why-we-collect">4. Why we collect</a></li>
+                    <li><a href="#disclosure">5. Disclosure</a></li>
+                    <li><a href="#sensitive-information">6. Health information</a></li>
+                    <li><a href="#data-security">7. Data security</a></li>
+                    <li><a href="#your-rights">8. Your rights</a></li>
+                    <li><a href="#cookies">9. Cookies</a></li>
+                    <li><a href="#complaints">10. Complaints</a></li>
+                    <li><a href="#changes">11. Changes</a></li>
+                    <li><a href="#contact">12. Contact us</a></li>
+                </ol>
+            </aside>
+
+            <article class="util-content">
+
+                <div class="info-box">
+                    <p><strong>Your privacy matters to us.</strong> This policy explains how J.PEER Health Pty Ltd collects, uses, stores, and protects your personal information in accordance with the Australian Privacy Principles (APPs) under the <em>Privacy Act 1988</em> (Cth). If you have any questions, please contact us at <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a> or call <a href="tel:0469371121">0469 371 121</a>.</p>
+                </div>
+
+                <h2 id="introduction">1. Introduction</h2>
+                <p>J.PEER Health Pty Ltd (ABN 16 683 516 761) ("J.PEER Health", "we", "us", "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and disclose personal information in accordance with the Australian Privacy Principles contained in the <em>Privacy Act 1988</em> (Cth).</p>
+                <p>By using our website or engaging our services, you consent to the practices described in this policy. This policy applies to all personal information we collect about clients, their family members, website visitors, and other individuals who interact with us.</p>
+
+                <h2 id="what-we-collect">2. What personal information we collect</h2>
+                <p>We may collect the following types of personal information depending on how you interact with us:</p>
+                <ul>
+                    <li><strong>Contact details:</strong> name, phone number, email address, postal address</li>
+                    <li><strong>Health information:</strong> medical history, care needs, clinical notes, disability information, medications, and Allied Health assessments — this is "sensitive information" under the <em>Privacy Act</em> and is handled with additional care (see Section 6 below)</li>
+                    <li><strong>Financial information:</strong> payment details, income details for government funding purposes, bank account or card details for billing</li>
+                    <li><strong>Government identifiers:</strong> My Aged Care ID number, Medicare number (where relevant)</li>
+                    <li><strong>Communication records:</strong> records of phone calls, emails, and enquiries made to us</li>
+                    <li><strong>Emergency contacts:</strong> name and contact details of nominated family members, guardians, or power of attorney</li>
+                    <li><strong>Website usage data:</strong> IP address, browser type, pages visited, and time spent on our site (via cookies — see Section 9 below)</li>
+                </ul>
+                <p>We only collect personal information that is reasonably necessary for the purposes described in this policy. We do not collect more information than is needed.</p>
+
+                <h2 id="how-we-collect">3. How we collect personal information</h2>
+                <p>We collect personal information in the following ways:</p>
+                <ul>
+                    <li><strong>Directly from you</strong> when you contact us by phone, email, or through our website enquiry form, or when you engage our services and complete a service agreement</li>
+                    <li><strong>From My Aged Care</strong> when you nominate J.PEER Health as your provider through the My Aged Care portal or by calling My Aged Care on 1800 200 422</li>
+                    <li><strong>From your authorised representative</strong> — this may be a family member, guardian, carer, or person holding power of attorney who contacts us on your behalf</li>
+                    <li><strong>From health professionals</strong> involved in your care (such as your GP, specialist, hospital discharge team, or Allied Health provider) where you have consented to the sharing of that information</li>
+                    <li><strong>Automatically through our website</strong> via cookies and similar technologies when you browse jpeerhealth.com</li>
+                </ul>
+                <p>Where it is practicable, we collect personal information directly from the individual concerned. If we collect information from a third party, we will take reasonable steps to notify you.</p>
+
+                <h2 id="why-we-collect">4. Why we collect personal information</h2>
+                <p>We use your personal information to:</p>
+                <ul>
+                    <li>Provide and coordinate home care services tailored to your needs and care plan</li>
+                    <li>Communicate with you and your authorised representatives about your care</li>
+                    <li>Comply with our obligations under the <em>Aged Care Act 2024</em> and the requirements of the Support at Home program</li>
+                    <li>Process payments, manage government funding, and issue invoices</li>
+                    <li>Conduct care assessments and develop or review your care plan</li>
+                    <li>Arrange rostering and match you with appropriate carers</li>
+                    <li>Respond to enquiries submitted through our website or by phone</li>
+                    <li>Improve our services and train our care team</li>
+                    <li>Meet our legal and regulatory obligations, including reporting to the Aged Care Quality and Safety Commission (ACQSC)</li>
+                    <li>Analyse website usage to improve our online presence (using anonymised data only)</li>
+                </ul>
+                <p>We will not use your personal information for purposes other than those listed above without your consent, unless permitted or required by law.</p>
+
+                <h2 id="disclosure">5. Disclosure of personal information</h2>
+                <p>We may share your personal information with:</p>
+                <ul>
+                    <li><strong>Your care team</strong> — carers, nurses, and Allied Health professionals directly involved in delivering your care</li>
+                    <li><strong>My Aged Care and the Department of Health and Aged Care</strong> as required under the <em>Aged Care Act 2024</em> and associated program guidelines</li>
+                    <li><strong>The Aged Care Quality and Safety Commission (ACQSC)</strong> for regulatory and compliance purposes</li>
+                    <li><strong>Your authorised representative</strong> — the family member, guardian, or power of attorney you have nominated</li>
+                    <li><strong>Health professionals involved in your care</strong> such as your GP or specialist, with your consent</li>
+                    <li><strong>IT and software providers</strong> who help us store and manage data — these providers are bound by confidentiality obligations and data processing agreements and must not use your data for their own purposes</li>
+                    <li><strong>Emergency services</strong> where there is a serious or immediate threat to your health or safety</li>
+                </ul>
+                <p><strong>We do not sell, rent, or trade your personal information to any third party.</strong> We will only disclose your information for the purposes outlined in this policy, with your consent, or where required by law.</p>
+                <p>If we disclose information to overseas recipients (for example, cloud-based IT infrastructure), we take reasonable steps to ensure those recipients handle your information in a way that is consistent with the Australian Privacy Principles.</p>
+
+                <h2 id="sensitive-information">6. Health information (sensitive information)</h2>
+                <p>Health information is classified as "sensitive information" under the <em>Privacy Act 1988</em> and is afforded a higher level of protection. We only collect health information that is directly necessary for the provision of your care.</p>
+                <p>By engaging J.PEER Health's services, you consent to the collection and use of your health information for the purposes of providing care, complying with aged care regulations, and communicating with health professionals involved in your care.</p>
+                <p>We take additional steps to protect sensitive information, including:</p>
+                <ul>
+                    <li>Restricting access to health records to staff directly involved in your care</li>
+                    <li>Storing health records in password-protected, access-controlled systems</li>
+                    <li>Requiring all staff to complete privacy and confidentiality training</li>
+                    <li>Not using health information for marketing or any secondary purpose without your explicit consent</li>
+                </ul>
+
+                <h2 id="data-security">7. Data security</h2>
+                <p>We take reasonable steps to protect your personal information from misuse, interference, loss, and unauthorised access, modification, or disclosure. Our security measures include:</p>
+                <ul>
+                    <li>Password-protected systems and role-based access controls</li>
+                    <li>Secure, encrypted digital storage for client records</li>
+                    <li>Staff confidentiality agreements and regular privacy training</li>
+                    <li>Secure document handling and disposal procedures</li>
+                    <li>Regular review of our security practices and procedures</li>
+                </ul>
+                <p>While we take all reasonable precautions, no method of data transmission or storage is completely secure. If you believe your information has been compromised, please contact us immediately at <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a>.</p>
+                <p>We retain personal information only for as long as necessary to provide our services and meet our legal obligations. When personal information is no longer required, we securely destroy or de-identify it.</p>
+
+                <h2 id="your-rights">8. Accessing and correcting your information</h2>
+                <p>Under the Australian Privacy Principles, you have the right to:</p>
+                <ul>
+                    <li><strong>Access</strong> the personal information we hold about you</li>
+                    <li><strong>Request corrections</strong> if any information is inaccurate, incomplete, out of date, or misleading</li>
+                    <li><strong>Request deletion</strong> of your personal information (subject to our legal obligations to retain certain records)</li>
+                </ul>
+                <p>To make an access or correction request, please contact our Privacy Officer:</p>
+                <ul>
+                    <li>Email: <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a></li>
+                    <li>Phone: <a href="tel:0469371121">0469 371 121</a></li>
+                    <li>Post: J.PEER Health Pty Ltd, Melbourne VIC, Australia</li>
+                </ul>
+                <p>We will respond to your request within <strong>30 days</strong>. In some circumstances, we may need to verify your identity before providing access. There is no charge for making an access or correction request.</p>
+                <p>If we are unable to provide access or make a correction, we will explain why in writing and advise you of any available avenues for review or complaint.</p>
+
+                <h2 id="cookies">9. Cookies</h2>
+                <p>Our website (jpeerhealth.com) uses cookies — small text files stored on your device — to improve your browsing experience and help us understand how visitors use our site.</p>
+                <p>The types of cookies we use include:</p>
+                <ul>
+                    <li><strong>Essential cookies:</strong> necessary for the website to function properly (for example, form session cookies)</li>
+                    <li><strong>Analytics cookies:</strong> used to analyse site traffic and understand how visitors interact with our pages — this data is anonymised and aggregated</li>
+                </ul>
+                <p>Cookies do not identify you personally. You can disable or delete cookies through your browser settings at any time. Please note that disabling cookies may affect the functionality of some parts of our website.</p>
+                <p>We do not use cookies for targeted advertising or to share your data with advertising networks.</p>
+
+                <h2 id="complaints">10. How to make a privacy complaint</h2>
+                <p>If you believe we have breached the Australian Privacy Principles or handled your personal information improperly, we encourage you to contact us in the first instance so we can try to resolve your concern.</p>
+                <p><strong>Step 1 — Contact us:</strong> Email our Privacy Officer at <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a> or write to J.PEER Health Pty Ltd, Melbourne VIC, Australia. Please describe your concern in as much detail as possible. We will acknowledge your complaint within 5 business days and provide a full response within <strong>30 days</strong>.</p>
+                <p><strong>Step 2 — External complaint:</strong> If you are not satisfied with our response, you may contact the <strong>Office of the Australian Information Commissioner (OAIC)</strong>:</p>
+                <ul>
+                    <li>Website: <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a></li>
+                    <li>Phone: 1300 363 992</li>
+                    <li>Post: GPO Box 5218, Sydney NSW 2001</li>
+                </ul>
+
+                <h2 id="changes">11. Changes to this policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal obligations. The current version will always be available at <a href="/privacy-policy.html">jpeerhealth.com/privacy-policy</a>, along with the date it was last updated.</p>
+                <p>Where changes are significant, we will take reasonable steps to notify active clients — for example, by email or by a notice on our website. We encourage you to review this policy periodically.</p>
+                <p>Your continued use of our services after any changes have been made constitutes your acceptance of the updated policy.</p>
+
+                <h2 id="contact">12. Contact us</h2>
+                <p>If you have any questions about this Privacy Policy or how we handle your personal information, please contact our Privacy Officer.</p>
+
+                <div class="contact-box">
+                    <h3>Privacy Officer — J.PEER Health Pty Ltd</h3>
+                    <p>ABN: 16 683 516 761 &nbsp;|&nbsp; Melbourne, Victoria, Australia</p>
+                    <p>
+                        Email: <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a><br>
+                        Phone: <a href="tel:0469371121">0469 371 121</a> (available 24/7)
+                    </p>
+                    <p style="margin-top:1rem; font-size:0.85rem; color:rgba(255,255,255,0.55);">We aim to respond to all privacy enquiries within 2 business days.</p>
+                </div>
+
+            </article>
+
+        </div>
+    </main>
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-main">
+            <!-- Column 1: Brand -->
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="J.PEER Health" class="footer-logo">
+                <p class="footer-tagline">Heartfelt Care</p>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <a href="tel:0469371121">0469 371 121</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Available 24/7</span>
+                </div>
+                <div class="footer-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Available 24/7 — including weekends
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div>
+                <h3 class="footer-col-heading">Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="/services/personal-care.html">Personal Care</a></li>
+                    <li><a href="/services/domestic-assistance.html">Domestic Assistance</a></li>
+                    <li><a href="/services/social-community-support.html">Social &amp; Community Support</a></li>
+                    <li><a href="/services/nursing-health-support.html">Nursing &amp; Health Support</a></li>
+                    <li><a href="/services/respite-care.html">Respite Care</a></li>
+                    <li><a href="/services/dementia-care.html">Dementia Care</a></li>
+                    <li><a href="/services/post-hospital-care.html">Post-Hospital Care</a></li>
+                    <li><a href="/services/24-7-overnight-care.html">24/7 &amp; Overnight Care</a></li>
+                    <li><a href="/services/support-at-home.html">Support at Home Program</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Explore -->
+            <div>
+                <h3 class="footer-col-heading">Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="/about/our-story.html">About Us</a></li>
+                    <li><a href="/about/our-team.html">Our Team</a></li>
+                    <li><a href="/about/our-values.html">Our Values</a></li>
+                    <li><a href="/areas/">Areas We Serve</a></li>
+                    <li><a href="/languages/hindi-home-care-melbourne.html">Care in Your Language</a></li>
+                    <li><a href="/pricing.html">Pricing &amp; Fees</a></li>
+                    <li><a href="/resources/faqs.html">FAQs</a></li>
+                    <li><a href="/resources/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Compliance -->
+            <div>
+                <h3 class="footer-col-heading">About J.PEER Health</h3>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    <span>Family-founded, locally owned &amp; operated</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    <span>Care in Hindi, Punjabi, Urdu, Tamil &amp; Malay</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    <span>ABN: 16 683 516 761</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>My Aged Care: <a href="tel:1800200422">1800 200 422</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>OPAN: <a href="tel:1800700600">1800 700 600</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>ACQSC: <a href="tel:1800951822">1800 951 822</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span><a href="/contact.html">Complaints Process</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <div class="footer-bottom-legal">
+                    <span>© 2026 J.PEER Health Pty Ltd. All rights reserved.</span>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <span>ABN: 16 683 516 761</span>
+                </div>
+                <p class="footer-languages">
+                    <strong>We provide care in:</strong> English, Hindi, Punjabi, Urdu, Tamil, Malay
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===================== STICKY MOBILE CTA ===================== -->
+    <div class="sticky-cta" role="complementary" aria-label="Call to action">
+        <a href="tel:0469371121">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Get Your Free Care Consultation
+        </a>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

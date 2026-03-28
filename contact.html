@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | J.PEER Health — Heartfelt Care</title>
+    <meta name="description" content="Get in touch with J.PEER Health. Call 0469 371 121, email Care@Jpeerhealth.com, or fill in our enquiry form. We're available 24/7 across Melbourne's south-east.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- LocalBusiness schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "J.PEER Health",
+        "description": "Compassionate home care services in Melbourne's south-east, delivered in your language.",
+        "url": "https://jpeerhealth.com",
+        "telephone": "+61469371121",
+        "email": "Care@Jpeerhealth.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dandenong",
+            "addressRegion": "VIC",
+            "addressCountry": "AU"
+        },
+        "areaServed": ["Dandenong","Berwick","Cranbourne","Clyde","Noble Park","Carrum Downs","Narre Warren","Hallam","Endeavour Hills","Pakenham"],
+        "openingHours": "Mo-Su 00:00-24:00",
+        "priceRange": "$$",
+        "sameAs": []
+    }
+    </script>
+
+    <!-- BreadcrumbList schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://jpeerhealth.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://jpeerhealth.com/contact"
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* ===== PAGE-SPECIFIC STYLES ===== */
+
+        /* Page hero */
+        .page-hero {
+            padding-top: 88px;
+            background: linear-gradient(145deg, var(--white) 0%, var(--blue-50) 100%);
+        }
+        .page-hero-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem 1.25rem 2.5rem;
+            text-align: center;
+        }
+        .page-hero-inner h1 {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+            animation: fadeUp 0.6s ease both;
+        }
+        .page-hero-intro {
+            font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+            color: var(--text-sub);
+            line-height: 1.75;
+            max-width: 640px;
+            margin: 0 auto;
+            animation: fadeUp 0.6s ease 0.1s both;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 1rem 1.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding-top: calc(88px + 1rem);
+        }
+        .breadcrumb a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+        /* Contact layout */
+        .contact-section { background: var(--white); }
+        .contact-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: var(--section-pad);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Contact info cards */
+        .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+
+        .contact-card {
+            background: var(--off-white);
+            border-radius: var(--radius-card);
+            padding: 1.5rem;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.25s;
+        }
+        .contact-card:hover {
+            border-color: var(--blue-light);
+            box-shadow: 0 4px 16px rgba(28,141,217,0.08);
+        }
+        .contact-card-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--blue-light);
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-card-icon svg { width: 22px; height: 22px; color: var(--blue); }
+        .contact-card-body { flex: 1; min-width: 0; }
+        .contact-card-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+        .contact-card-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+        .contact-card-value a {
+            color: var(--navy);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact-card-value a:hover { color: var(--blue); }
+        .contact-card-value.phone-number {
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--blue);
+        }
+        .contact-card-value.phone-number a { color: var(--blue); }
+        .contact-card-note {
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            margin-top: 0.25rem;
+            line-height: 1.5;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            background: var(--off-white);
+            border-radius: 12px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border: 1.5px dashed var(--border);
+            margin-top: 1rem;
+        }
+
+        /* Enquiry form */
+        .contact-form-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1.5px solid var(--border);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+        .contact-form-card .form-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+        }
+        .contact-form-card .form-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            line-height: 1.55;
+        }
+
+        /* Radio group */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+        }
+        .radio-option input[type="radio"] {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--blue);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .radio-option span {
+            font-size: 0.92rem;
+            color: var(--text);
+        }
+
+        /* Callback section */
+        .callback-section {
+            background: var(--off-white);
+        }
+        .callback-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: var(--section-pad);
+        }
+        .callback-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1.5px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .callback-card .form-title { margin-bottom: 0.4rem; }
+        .callback-card .form-subtitle { margin-bottom: 1.5rem; }
+        .callback-form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        /* Regulatory section */
+        .regulatory-section { background: var(--white); }
+        .regulatory-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem 1.25rem;
+        }
+        .regulatory-heading {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.35rem;
+        }
+        .regulatory-note {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .regulatory-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+        .regulatory-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 1.1rem;
+            background: var(--off-white);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .regulatory-item svg { width: 18px; height: 18px; color: var(--blue); flex-shrink: 0; }
+        .regulatory-item-body { flex: 1; }
+        .regulatory-item-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .regulatory-item-number a {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--blue);
+            text-decoration: none;
+        }
+        .regulatory-item-number a:hover { text-decoration: underline; }
+
+        @media (min-width: 768px) {
+            .page-hero-inner { padding: 3.5rem 2rem 3rem; }
+            .breadcrumb { padding: calc(88px + 1rem) 2rem 0; }
+            .callback-form-row { grid-template-columns: 1fr 1fr; }
+            .regulatory-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-inner { grid-template-columns: 5fr 6fr; gap: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo" aria-label="J.PEER Health — Home">
+                <img src="images/logo-black.png" alt="J.PEER Health — Heartfelt Care" height="56">
+            </a>
+
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about/our-story.html" class="nav-link">About</a>
+                <a href="/services/personal-care.html" class="nav-link">Services</a>
+                <a href="/areas/" class="nav-link">Areas</a>
+                <a href="/pricing.html" class="nav-link">Pricing</a>
+                <a href="/resources/blog.html" class="nav-link">Resources</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:0469371121" class="header-phone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    0469 371 121
+                </a>
+                <a href="/contact.html" class="btn-header">Talk to Us</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile nav -->
+    <nav class="nav-mobile" id="mobileNav" aria-label="Mobile navigation">
+        <a href="/">Home</a>
+        <a href="/about/our-story.html">About Us</a>
+        <a href="/services/personal-care.html">Services</a>
+        <a href="/areas/">Areas We Serve</a>
+        <a href="/languages/hindi-home-care-melbourne.html">Care in Your Language</a>
+        <a href="/pricing.html">Pricing &amp; Fees</a>
+        <a href="/resources/blog.html">Resources</a>
+        <a href="/contact.html">Contact</a>
+        <a href="tel:0469371121" class="nav-mobile-phone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call 0469 371 121
+        </a>
+    </nav>
+
+
+    <!-- ===================== BREADCRUMB ===================== -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <span aria-current="page">Contact</span>
+    </nav>
+
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero" aria-labelledby="contact-h1">
+        <div class="page-hero-inner">
+            <h1 id="contact-h1">Get in touch — we'd love to <em>hear from you</em></h1>
+            <p class="page-hero-intro">Whether you're just starting to explore options or you're ready to begin, we're here. No forms to battle through, no call centres — just a real conversation with our care team.</p>
+        </div>
+    </section>
+
+
+    <!-- ===================== CONTACT: TWO-COLUMN ===================== -->
+    <section class="contact-section" aria-labelledby="contact-details-heading">
+        <div class="contact-inner">
+
+            <!-- LEFT: Contact info -->
+            <div class="contact-info fade-in-up">
+                <h2 class="section-heading" id="contact-details-heading" style="margin-bottom:1.25rem;">How to reach us</h2>
+
+                <!-- Phone -->
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <div class="contact-card-body">
+                        <p class="contact-card-label">Phone</p>
+                        <p class="contact-card-value phone-number"><a href="tel:0469371121">0469 371 121</a></p>
+                        <p class="contact-card-note">Call us any time — we're available 24 hours, 7 days a week, including public holidays.</p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="contact-card-body">
+                        <p class="contact-card-label">Email</p>
+                        <p class="contact-card-value"><a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a></p>
+                        <p class="contact-card-note">We aim to respond to all emails within a few hours during business hours.</p>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="contact-card-body">
+                        <p class="contact-card-label">Availability</p>
+                        <p class="contact-card-value">Available 24 hours, 7 days a week</p>
+                        <p class="contact-card-note">Including weekends and public holidays. We're here when you need us most.</p>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <div class="contact-card-body">
+                        <p class="contact-card-label">Languages We Speak</p>
+                        <p class="contact-card-value">English, Hindi, Punjabi, Urdu, Tamil &amp; Malay</p>
+                        <p class="contact-card-note">Feel free to call or write to us in your language — our care team will respond in kind.</p>
+                    </div>
+                </div>
+
+                <!-- Service area -->
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="contact-card-body">
+                        <p class="contact-card-label">Service Area</p>
+                        <p class="contact-card-value" style="font-weight:500;font-size:0.92rem;line-height:1.6;">Dandenong, Berwick, Cranbourne, Clyde, Clyde North, Noble Park, Carrum Downs, Narre Warren, Hallam, Endeavour Hills, Pakenham</p>
+                        <p class="contact-card-note">Serving families across Melbourne's south-east. Not sure if we cover your area? Give us a call — we'll let you know.</p>
+                    </div>
+                </div>
+
+                <!-- Map placeholder -->
+                <div class="map-placeholder" role="img" aria-label="Map of J.PEER Health's service area across south-east Melbourne">
+                    Google Map — service area south-east Melbourne
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Enquiry form -->
+            <div class="contact-form-card fade-in-up delay-2">
+                <p class="form-title">Send us a message</p>
+                <p class="form-subtitle">Fill in a few details and a member of our care team will be in touch shortly — usually within the hour.</p>
+
+                <form id="contactForm" novalidate aria-label="Contact enquiry form">
+                    <input type="hidden" name="access_key" value="77006307-dbcf-4b2c-b606-cbc303a742ea">
+                    <input type="hidden" name="subject" value="New Care Enquiry — jpeerhealth.com">
+                    <input type="checkbox" name="botcheck" style="display:none;">
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Full name <span class="required" aria-label="required">*</span></label>
+                                <input class="form-input" type="text" id="contact-name" name="name" placeholder="Your full name" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-phone">Phone number <span class="required" aria-label="required">*</span></label>
+                                <input class="form-input" type="tel" id="contact-phone" name="phone" placeholder="04xx xxx xxx" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email address</label>
+                            <input class="form-input" type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-suburb">Your suburb</label>
+                            <select class="form-select" id="contact-suburb" name="suburb">
+                                <option value="" disabled selected>Select your suburb</option>
+                                <option value="dandenong">Dandenong</option>
+                                <option value="berwick">Berwick</option>
+                                <option value="cranbourne">Cranbourne</option>
+                                <option value="clyde">Clyde / Clyde North</option>
+                                <option value="noble-park">Noble Park</option>
+                                <option value="carrum-downs">Carrum Downs</option>
+                                <option value="narre-warren">Narre Warren</option>
+                                <option value="hallam">Hallam</option>
+                                <option value="endeavour-hills">Endeavour Hills</option>
+                                <option value="pakenham">Pakenham</option>
+                                <option value="other">Other / Not listed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="form-label">I'm looking for care for</p>
+                            <div class="radio-group" role="group" aria-label="Who is the care for?">
+                                <label class="radio-option">
+                                    <input type="radio" name="care_for" value="myself">
+                                    <span>Myself</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="care_for" value="parent">
+                                    <span>A parent or loved one</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-language">Preferred language</label>
+                            <select class="form-select" id="contact-language" name="language">
+                                <option value="" disabled selected>Select a language</option>
+                                <option value="english">English</option>
+                                <option value="hindi">Hindi</option>
+                                <option value="punjabi">Punjabi</option>
+                                <option value="urdu">Urdu</option>
+                                <option value="tamil">Tamil</option>
+                                <option value="malay">Malay</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-message">How can we help?</label>
+                            <textarea class="form-textarea" id="contact-message" name="message" rows="4" placeholder="Tell us a little about what you're looking for — there are no wrong answers."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contact-source">How did you hear about us?</label>
+                            <select class="form-select" id="contact-source" name="source">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="google">Google search</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="word-of-mouth">Word of mouth</option>
+                                <option value="gp-referral">GP / doctor referral</option>
+                                <option value="hospital-referral">Hospital referral</option>
+                                <option value="my-aged-care">My Aged Care</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send My Enquiry</button>
+
+                        <p class="form-reassurance">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            No obligation. We'll call you for a friendly chat.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ===================== CALLBACK SECTION ===================== -->
+    <section class="callback-section" aria-labelledby="callback-heading">
+        <div class="callback-inner">
+            <div class="section-header-centred fade-in-up">
+                <span class="section-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Prefer a call?
+                </span>
+                <h2 class="section-heading" id="callback-heading">Prefer us to call <em>you?</em></h2>
+                <p class="section-sub centred">Leave your details below and tell us the best time to reach you. We'll call — no call centres, no hold music.</p>
+            </div>
+
+            <div class="callback-card fade-in-up delay-1">
+                <p class="form-title">Request a callback</p>
+                <p class="form-subtitle" style="font-size:0.88rem;color:var(--text-sub);margin-bottom:1.5rem;line-height:1.55;">Tell us your name, number and when suits you best. We'll take care of the rest.</p>
+
+                <form id="callbackForm" novalidate aria-label="Callback request form">
+                    <input type="hidden" name="access_key" value="77006307-dbcf-4b2c-b606-cbc303a742ea">
+                    <input type="hidden" name="subject" value="Callback Request — jpeerhealth.com">
+                    <input type="checkbox" name="botcheck" style="display:none;">
+                    <div class="form-grid">
+                        <div class="callback-form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="callback-name">Full name <span class="required" aria-label="required">*</span></label>
+                                <input class="form-input" type="text" id="callback-name" name="name" placeholder="Your full name" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="callback-phone">Phone number <span class="required" aria-label="required">*</span></label>
+                                <input class="form-input" type="tel" id="callback-phone" name="phone" placeholder="04xx xxx xxx" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="callback-time">Best time to call</label>
+                            <select class="form-select" id="callback-time" name="preferred_time">
+                                <option value="" disabled selected>Select a time</option>
+                                <option value="morning">Morning — 8am to 12pm</option>
+                                <option value="afternoon">Afternoon — 12pm to 5pm</option>
+                                <option value="evening">Evening — 5pm to 8pm</option>
+                                <option value="anytime">Anytime</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Request a Callback</button>
+
+                        <p class="form-reassurance">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            No obligation. We'll call you for a friendly chat.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== REGULATORY CONTACTS ===================== -->
+    <section class="regulatory-section" aria-labelledby="regulatory-heading">
+        <div class="regulatory-inner">
+            <p class="regulatory-heading" id="regulatory-heading">Aged care regulatory contacts</p>
+            <p class="regulatory-note">If you have a concern or need independent information about aged care, these organisations are here to help.</p>
+            <div class="regulatory-grid">
+                <div class="regulatory-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <div class="regulatory-item-body">
+                        <p class="regulatory-item-name">My Aged Care</p>
+                        <p class="regulatory-item-number"><a href="tel:1800200422">1800 200 422</a></p>
+                    </div>
+                </div>
+                <div class="regulatory-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <div class="regulatory-item-body">
+                        <p class="regulatory-item-name">OPAN (Aged Care Advocacy)</p>
+                        <p class="regulatory-item-number"><a href="tel:1800700600">1800 700 600</a></p>
+                    </div>
+                </div>
+                <div class="regulatory-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div class="regulatory-item-body">
+                        <p class="regulatory-item-name">Aged Care Quality &amp; Safety Commission</p>
+                        <p class="regulatory-item-number"><a href="tel:1800951822">1800 951 822</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-main">
+            <!-- Column 1: Brand -->
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="J.PEER Health" class="footer-logo">
+                <p class="footer-tagline">Heartfelt Care</p>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <a href="tel:0469371121">0469 371 121</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Available 24/7</span>
+                </div>
+                <div class="footer-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Available 24/7 — including weekends
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div>
+                <h3 class="footer-col-heading">Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="/services/personal-care.html">Personal Care</a></li>
+                    <li><a href="/services/domestic-assistance.html">Domestic Assistance</a></li>
+                    <li><a href="/services/social-community-support.html">Social &amp; Community Support</a></li>
+                    <li><a href="/services/nursing-health-support.html">Nursing &amp; Health Support</a></li>
+                    <li><a href="/services/respite-care.html">Respite Care</a></li>
+                    <li><a href="/services/dementia-care.html">Dementia Care</a></li>
+                    <li><a href="/services/post-hospital-care.html">Post-Hospital Care</a></li>
+                    <li><a href="/services/24-7-overnight-care.html">24/7 &amp; Overnight Care</a></li>
+                    <li><a href="/services/support-at-home.html">Support at Home Program</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Explore -->
+            <div>
+                <h3 class="footer-col-heading">Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="/about/our-story.html">About Us</a></li>
+                    <li><a href="/about/our-team.html">Our Team</a></li>
+                    <li><a href="/about/our-values.html">Our Values</a></li>
+                    <li><a href="/areas/">Areas We Serve</a></li>
+                    <li><a href="/languages/hindi-home-care-melbourne.html">Care in Your Language</a></li>
+                    <li><a href="/pricing.html">Pricing &amp; Fees</a></li>
+                    <li><a href="/resources/faqs.html">FAQs</a></li>
+                    <li><a href="/resources/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Compliance -->
+            <div>
+                <h3 class="footer-col-heading">About J.PEER Health</h3>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    <span>Family-founded, locally owned &amp; operated</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    <span>Care in Hindi, Punjabi, Urdu, Tamil &amp; Malay</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    <span>ABN: 16 683 516 761</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>My Aged Care: <a href="tel:1800200422">1800 200 422</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>OPAN: <a href="tel:1800700600">1800 700 600</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>ACQSC: <a href="tel:1800951822">1800 951 822</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span><a href="/contact.html">Complaints Process</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <div class="footer-bottom-legal">
+                    <span>© 2026 J.PEER Health Pty Ltd. All rights reserved.</span>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <span>ABN: 16 683 516 761</span>
+                </div>
+                <p class="footer-languages">
+                    <strong>We provide care in:</strong> English, Hindi, Punjabi, Urdu, Tamil, Malay
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===================== STICKY MOBILE CTA ===================== -->
+    <div class="sticky-cta" role="complementary" aria-label="Call to action">
+        <a href="tel:0469371121">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Get Your Free Care Consultation
+        </a>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

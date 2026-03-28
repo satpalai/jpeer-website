@@ -4,194 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Care That Truly Feels Like Home | J.PEER Health — Heartfelt Care</title>
-    <meta name="description" content="Compassionate home care in Melbourne's south-east. Personal care, dementia support, nursing, and more — delivered your way. Call 0469 371 121.">
+    <meta name="description" content="Compassionate home care in Melbourne's south-east. Personal care, dementia support, nursing and more — delivered in your language, your way. Call 0469 371 121.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
-    <!-- FONT SWAP: Replace 'DM Sans' with 'PP Neue Medium' and 'Fraunces' with 'Recoleta' when you have web font licenses -->
-    <style>
-        :root {
-            --font-body: 'DM Sans', sans-serif;
-            --font-display: 'Fraunces', serif;
-            --blue: #1C8DD9;
-            --blue-dark: #1574B5;
-            --blue-light: #E8F4FC;
-            --blue-50: #F0F8FF;
-            --navy: #0F2B3F;
-            --text: #1A1D21;
-            --text-sub: #52575D;
-            --text-muted: #8A8F96;
-            --white: #FFFFFF;
-            --off-white: #F8F9FA;
-            --border: #E5E7EB;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; scroll-behavior: smooth; }
-        body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-
-        /* === HEADER === */
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; display: flex; align-items: center; justify-content: space-between; height: 70px; }
-        .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .logo-mark { width: 38px; height: 38px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.75rem; }
-        .logo-text-group { line-height: 1.2; }
-        .logo-name { font-weight: 700; font-size: 1.15rem; color: var(--navy); letter-spacing: -0.01em; }
-        .logo-tagline { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); font-weight: 600; }
-        .nav-desktop { display: none; align-items: center; gap: 0.15rem; }
-        .nav-link { font-size: 0.88rem; font-weight: 500; color: var(--text-sub); text-decoration: none; padding: 0.45rem 0.75rem; border-radius: 8px; transition: all 0.2s; }
-        .nav-link:hover { color: var(--blue); background: var(--blue-50); }
-        .header-cta { display: none; align-items: center; gap: 0.75rem; }
-        .header-phone { font-size: 0.88rem; font-weight: 600; color: var(--navy); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
-        .header-phone svg { width: 15px; height: 15px; color: var(--blue); }
-        .btn-header { padding: 0.5rem 1.15rem; background: var(--blue); color: white; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; border: none; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
-        .btn-header:hover { background: var(--blue-dark); }
-        .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-        .menu-toggle span { width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
-        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-        .nav-mobile { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 1rem 1.25rem; overflow-y: auto; z-index: 999; }
-        .nav-mobile.open { display: block; animation: fadeIn 0.25s ease; }
-        .nav-mobile a { display: block; padding: 0.85rem 0; font-size: 1.05rem; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
-        .nav-mobile-phone { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.25rem; padding: 0.9rem; background: var(--blue); color: white !important; border-radius: 10px; font-weight: 600; border: none !important; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* === HERO === */
-        .hero { padding-top: 70px; background: var(--white); }
-        .hero-inner { max-width: 1200px; margin: 0 auto; padding: 3rem 1.25rem 2rem; display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
-        .hero-content { max-width: 560px; }
-        .hero-label { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.85rem; background: var(--blue-light); border-radius: 100px; font-size: 0.78rem; font-weight: 600; color: var(--blue-dark); margin-bottom: 1.25rem; animation: fadeUp 0.6s ease both; }
-        .hero-label svg { width: 14px; height: 14px; }
-        h1 { font-family: var(--font-body); font-size: clamp(2rem,4.5vw,3.2rem); font-weight: 700; line-height: 1.15; color: var(--navy); margin-bottom: 1.15rem; letter-spacing: -0.025em; animation: fadeUp 0.6s ease 0.08s both; }
-        h1 em { font-family: var(--font-display); font-style: italic; font-weight: 500; color: var(--blue); }
-        .hero-sub { font-size: clamp(0.95rem,1.8vw,1.1rem); color: var(--text-sub); line-height: 1.7; margin-bottom: 1.75rem; max-width: 480px; animation: fadeUp 0.6s ease 0.16s both; }
-        .hero-actions { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; animation: fadeUp 0.6s ease 0.24s both; }
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 0.9rem 1.5rem; background: var(--blue); color: white; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; text-decoration: none; border-radius: 10px; border: none; cursor: pointer; transition: all 0.25s; }
-        .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(28,141,217,0.25); }
-        .btn-primary svg { width: 17px; height: 17px; }
-        .btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.85rem 1.5rem; background: transparent; color: var(--navy); font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; text-decoration: none; border-radius: 10px; border: 1.5px solid var(--border); transition: all 0.25s; }
-        .btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-50); }
-        .trust-row { display: flex; flex-wrap: wrap; gap: 1.25rem; animation: fadeUp 0.6s ease 0.32s both; }
-        .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--text-muted); }
-        .trust-item svg { width: 16px; height: 16px; color: var(--blue); flex-shrink: 0; }
-        .trust-item strong { color: var(--text); font-weight: 600; }
-        .hero-visual { position: relative; animation: fadeUp 0.6s ease 0.2s both; }
-        .hero-image-wrapper { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; background: var(--off-white); position: relative; }
-        .hero-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .image-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--blue-light) 0%, var(--off-white) 100%); }
-        .image-placeholder p { font-size: 0.85rem; color: var(--text-muted); max-width: 280px; }
-        .image-placeholder svg { width: 48px; height: 48px; color: var(--blue); opacity: 0.4; margin-bottom: 0.75rem; }
-        .floating-card { position: absolute; bottom: -16px; left: 20px; background: white; padding: 0.75rem 1rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 0.6rem; }
-        .floating-card-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; }
-        .floating-card-icon svg { width: 18px; height: 18px; color: var(--blue); }
-        .floating-card-text { font-size: 0.78rem; color: var(--text-muted); line-height: 1.3; }
-        .floating-card-text strong { display: block; color: var(--text); font-size: 0.88rem; }
-        .floating-card-right { position: absolute; top: 20px; right: -12px; background: white; padding: 0.65rem 0.9rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; }
-        .stars { color: #F59E0B; font-size: 0.85rem; letter-spacing: 1px; }
-        .rating-text { color: var(--text-muted); }
-        .rating-text strong { color: var(--text); }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* === STICKY MOBILE CTA === */
-        .sticky-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 998; padding: 0.65rem 1rem; background: white; border-top: 1px solid var(--border); box-shadow: 0 -2px 12px rgba(0,0,0,0.04); }
-        .sticky-cta a { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.8rem; background: var(--blue); color: white; font-family: var(--font-body); font-weight: 600; font-size: 0.92rem; text-decoration: none; border-radius: 10px; }
-        .sticky-cta a svg { width: 16px; height: 16px; }
-
-        /* === RESPONSIVE === */
-        @media (min-width: 640px) { .hero-actions { flex-direction: row; } }
-        @media (min-width: 768px) { .sticky-cta { display: none; } .header-cta { display: flex; } .hero-inner { padding: 4rem 2rem 3rem; } }
-        @media (min-width: 1024px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 4rem; padding: 0 2rem; min-height: calc(100vh - 70px); } .nav-desktop { display: flex; } .menu-toggle { display: none; } .hero-content { max-width: 520px; } .floating-card-right { right: -24px; } }
-        @media (min-width: 1200px) { .hero-inner { gap: 5rem; } }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- LocalBusiness schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "J.PEER Health",
+        "description": "Compassionate home care services in Melbourne's south-east, delivered in your language.",
+        "url": "https://jpeerhealth.com",
+        "telephone": "+61469371121",
+        "email": "Care@Jpeerhealth.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dandenong",
+            "addressRegion": "VIC",
+            "addressCountry": "AU"
+        },
+        "areaServed": ["Dandenong","Berwick","Cranbourne","Clyde","Noble Park","Carrum Downs","Narre Warren","Hallam","Endeavour Hills","Pakenham"],
+        "openingHours": "Mo-Su 00:00-24:00",
+        "priceRange": "$$",
+        "sameAs": []
+    }
+    </script>
+    <!-- FONT SWAP: Replace 'DM Sans' → 'PP Neue Medium', 'Fraunces' → 'Recoleta' when licences are in place -->
 </head>
 <body>
+
+    <!-- ===================== HEADER ===================== -->
     <header class="header">
         <div class="header-inner">
-            <a href="/" class="logo">
-                <!-- Replace with: <img src="images/BLACK_FULL_LOGO_COMBINED.png" alt="J.PEER Health" height="38"> -->
-                <div class="logo-mark">J.P</div>
-                <div class="logo-text-group">
-                    <div class="logo-name">J.PEER Health</div>
-                    <div class="logo-tagline">Heartfelt Care</div>
-                </div>
+            <a href="/" class="logo" aria-label="J.PEER Health — Home">
+                <img src="images/logo-black.png" alt="J.PEER Health — Heartfelt Care" height="56">
             </a>
-            <nav class="nav-desktop">
+
+            <nav class="nav-desktop" aria-label="Main navigation">
                 <a href="/" class="nav-link">Home</a>
                 <a href="/about/our-story.html" class="nav-link">About</a>
                 <a href="/services/personal-care.html" class="nav-link">Services</a>
-                <a href="/areas/home-care-dandenong.html" class="nav-link">Areas</a>
+                <a href="/areas/" class="nav-link">Areas</a>
                 <a href="/pricing.html" class="nav-link">Pricing</a>
                 <a href="/resources/blog.html" class="nav-link">Resources</a>
                 <a href="/contact.html" class="nav-link">Contact</a>
             </nav>
+
             <div class="header-cta">
                 <a href="tel:0469371121" class="header-phone">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                     0469 371 121
                 </a>
-                <a href="/contact.html" class="btn-header">Get Started</a>
+                <a href="/contact.html" class="btn-header">Talk to Us</a>
             </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <nav class="nav-mobile" id="mobileNav">
+    <!-- Mobile nav -->
+    <nav class="nav-mobile" id="mobileNav" aria-label="Mobile navigation">
         <a href="/">Home</a>
         <a href="/about/our-story.html">About Us</a>
         <a href="/services/personal-care.html">Services</a>
-        <a href="/areas/home-care-dandenong.html">Areas We Serve</a>
+        <a href="/areas/">Areas We Serve</a>
         <a href="/languages/hindi-home-care-melbourne.html">Care in Your Language</a>
         <a href="/pricing.html">Pricing &amp; Fees</a>
         <a href="/resources/blog.html">Resources</a>
         <a href="/contact.html">Contact</a>
         <a href="tel:0469371121" class="nav-mobile-phone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Call 0469 371 121
         </a>
     </nav>
 
-    <section class="hero">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-label="Hero">
         <div class="hero-inner">
             <div class="hero-content">
                 <div class="hero-label">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     Serving Melbourne's South-East
                 </div>
                 <h1>Home care that truly feels like <em>home.</em></h1>
-                <p class="hero-sub">Compassionate, personalised care that fits around your life — not the other way around. Whether it's help around the house, specialist nursing, or simply someone who truly understands your family's needs.</p>
+                <p class="hero-sub">From everyday help around the house to specialist nursing and everything in between — your routine, your preferences, your peace of mind.</p>
                 <div class="hero-actions">
-                    <a href="tel:0469371121" class="btn-primary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                        Free Care Consultation
-                    </a>
-                    <a href="/contact.html" class="btn-outline">Request a Callback</a>
+                    <button type="button" class="btn-primary" id="consultBtn" aria-haspopup="dialog">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        Get Your Free Care Consultation
+                    </button>
                 </div>
                 <div class="trust-row">
                     <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         <span><strong>45+ years</strong> experience</span>
                     </div>
                     <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         <span><strong>24/7</strong> available</span>
                     </div>
                     <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                        <span>Care that <strong>understands you</strong></span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        <span>Spoken in <strong>your language</strong></span>
                     </div>
                 </div>
             </div>
 
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
-                    <!-- Replace with: <img src="images/hero.jpg" alt="J.PEER Health carer warmly assisting a client at home in Melbourne"> -->
-                    <div class="image-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <p>Place a warm, authentic photo here — a carer and client sharing a genuine moment at home.</p>
-                    </div>
+                    <img src="images/hero.jpg" alt="A daughter embracing her mother at home — J.PEER Health, heartfelt care across Melbourne's south-east">
                 </div>
-                <div class="floating-card">
+                <div class="floating-card" aria-hidden="true">
                     <div class="floating-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
@@ -200,7 +128,7 @@
                         We're here when you need us
                     </div>
                 </div>
-                <div class="floating-card-right">
+                <div class="floating-card-right" aria-hidden="true">
                     <span class="stars">★★★★★</span>
                     <span class="rating-text"><strong>5.0</strong> Google Reviews</span>
                 </div>
@@ -208,28 +136,740 @@
         </div>
     </section>
 
-    <div class="sticky-cta">
+
+    <!-- ===================== SECTION 2: DUAL-PATH SELECTOR ===================== -->
+    <section class="dual-path" aria-labelledby="dual-path-heading">
+        <div class="section-inner">
+            <div class="section-header-centred fade-in-up">
+<h2 class="section-heading" id="dual-path-heading">Which best describes you?</h2>
+                <p class="section-sub centred">Everyone's situation is different. Tell us who you're looking for care for and we'll guide you from there.</p>
+            </div>
+
+            <div class="dual-path-grid">
+                <a href="/services/personal-care.html" class="path-card fade-in-up delay-1">
+                    <div class="path-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="path-title">I need care for myself</div>
+                    <p class="path-desc">Whether you want to stay independent longer, need help after surgery, or would love some extra support at home — we're here for you.</p>
+                    <span class="path-cta">
+                        Explore care for yourself
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/about/our-story.html" class="path-card fade-in-up delay-2">
+                    <div class="path-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <div class="path-title">I'm looking after a parent</div>
+                    <p class="path-desc">Finding the right care for someone you love is one of the most important decisions you'll make. We'll guide you every step of the way.</p>
+                    <span class="path-cta">
+                        Explore care for a parent
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 3: WHY J.PEER HEALTH ===================== -->
+    <section class="why-jpeer" aria-labelledby="why-heading">
+        <div class="section-inner">
+            <div class="section-header-centred fade-in-up">
+<h2 class="section-heading" id="why-heading">Good care is more than showing up</h2>
+                <p class="section-sub centred">It's about knowing your language, your culture, and what truly matters to your family. That's what makes J.PEER Health different.</p>
+            </div>
+
+            <div class="diff-grid">
+                <div class="diff-card fade-in-up delay-1">
+                    <div class="diff-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <h3 class="diff-title">Care in your language</h3>
+                    <p class="diff-desc">We speak Hindi, Punjabi, Urdu, Tamil, and Malay. Real conversations, genuine understanding — not just translated brochures.</p>
+                </div>
+
+                <div class="diff-card fade-in-up delay-2">
+                    <div class="diff-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="diff-title">45+ years of experience</h3>
+                    <p class="diff-desc">Our team brings decades of hands-on aged care expertise. You're not our first family — and you'll never feel like just another client.</p>
+                </div>
+
+                <div class="diff-card fade-in-up delay-3">
+                    <div class="diff-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    </div>
+                    <h3 class="diff-title">Clear pricing, no surprises</h3>
+                    <p class="diff-desc">We publish our fees upfront. No hidden costs, no confusing packages — just honest, transparent care.</p>
+                    <a href="/pricing.html" class="diff-link">
+                        See our pricing
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+
+                <div class="diff-card fade-in-up delay-4">
+                    <div class="diff-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3 class="diff-title">Available 24/7</h3>
+                    <p class="diff-desc">Day or night, we answer. Because a care need doesn't wait for business hours, and neither do we.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 4: SERVICES OVERVIEW ===================== -->
+    <section class="services-overview" aria-labelledby="services-heading">
+        <div class="section-inner">
+            <div class="section-header-centred fade-in-up">
+<h2 class="section-heading" id="services-heading">Care designed around your <em>life</em></h2>
+                <p class="section-sub centred">From a helping hand around the house to specialist nursing — every service is delivered with the same warmth and attention to detail.</p>
+            </div>
+
+            <div class="services-grid" role="list">
+
+                <a href="/services/personal-care.html" class="service-card fade-in-up delay-1" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3 class="service-title">Personal Care</h3>
+                    <p class="service-desc">Bathing, dressing, grooming and daily routines, delivered with dignity and respect.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/domestic-assistance.html" class="service-card fade-in-up delay-2" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3 class="service-title">Domestic Assistance</h3>
+                    <p class="service-desc">Cleaning, laundry, shopping and meal preparation so your home feels like home.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/social-community-support.html" class="service-card fade-in-up delay-3" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3 class="service-title">Social &amp; Community Support</h3>
+                    <p class="service-desc">Transport, outings, social activities and simple companionship that lifts the spirit.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/nursing-health-support.html" class="service-card fade-in-up delay-4" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3 class="service-title">Nursing &amp; Health Support</h3>
+                    <p class="service-desc">Wound care, medication management, health monitoring by qualified nurses.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/respite-care.html" class="service-card fade-in-up delay-1" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                    </div>
+                    <h3 class="service-title">Respite Care</h3>
+                    <p class="service-desc">Short-term relief for family carers — planned or at short notice.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/dementia-care.html" class="service-card fade-in-up delay-2" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </div>
+                    <h3 class="service-title">Dementia &amp; Cognitive Care</h3>
+                    <p class="service-desc">Specialist memory care that preserves dignity, routine and connection.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/post-hospital-care.html" class="service-card fade-in-up delay-3" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    </div>
+                    <h3 class="service-title">Post-Hospital Care</h3>
+                    <p class="service-desc">Safe, supported recovery at home after surgery or a hospital stay.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/services/24-7-overnight-care.html" class="service-card fade-in-up delay-4" role="listitem">
+                    <div class="service-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                    </div>
+                    <h3 class="service-title">24/7 &amp; Overnight Care</h3>
+                    <p class="service-desc">Round-the-clock presence and overnight support for complete peace of mind.</p>
+                    <span class="service-arrow" aria-hidden="true">
+                        Learn more
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 5: ORIGIN STORY ===================== -->
+    <section class="origin-story" aria-labelledby="story-heading">
+        <div class="origin-inner">
+            <div class="origin-text fade-in-up">
+<h2 class="section-heading" id="story-heading">Born from a family's <em>own</em> story</h2>
+                <div class="origin-body">
+                    <p>J.PEER Health began not in a boardroom, but in our family home.</p>
+                    <p>Our founders watched as our grandmother struggled to get the care she deserved — care that understood her language, her culture, and her dignity. Appointment after appointment, the system felt cold and impersonal.</p>
+                    <p>That experience became the foundation of J.PEER Health. Every care plan, every home visit, every conversation carries the memory of that promise: no family should ever feel the way we did.</p>
+                </div>
+            </div>
+
+            <div class="origin-visual fade-in-up delay-2">
+                <div class="origin-blob" role="img" aria-label="J.PEER Health founder">
+                    <div class="origin-blob-inner">
+                        <img src="images/founder.png" alt="J.PEER Health founder">
+                    </div>
+                </div>
+                <p class="origin-caption">Our story begins here</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 6: AREAS WE SERVE ===================== -->
+    <section class="areas-serve" aria-labelledby="areas-heading">
+        <div class="section-inner">
+            <div class="section-header-centred fade-in-up">
+<h2 class="section-heading" id="areas-heading">Heartfelt care across Melbourne's south-east</h2>
+                <p class="section-sub centred">We come to you — wherever home is.</p>
+            </div>
+
+            <nav class="suburb-pills fade-in-up delay-1" aria-label="Service areas">
+                <a href="/areas/home-care-dandenong.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Dandenong
+                </a>
+                <a href="/areas/home-care-berwick.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Berwick
+                </a>
+                <a href="/areas/home-care-cranbourne.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Cranbourne
+                </a>
+                <a href="/areas/home-care-clyde.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Clyde &amp; Clyde North
+                </a>
+                <a href="/areas/home-care-noble-park.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Noble Park
+                </a>
+                <a href="/areas/home-care-carrum-downs.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Carrum Downs
+                </a>
+                <a href="/areas/home-care-narre-warren.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Narre Warren
+                </a>
+                <a href="/areas/home-care-hallam.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Hallam
+                </a>
+                <a href="/areas/home-care-endeavour-hills.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Endeavour Hills
+                </a>
+                <a href="/areas/home-care-pakenham.html" class="suburb-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Pakenham
+                </a>
+            </nav>
+
+            <p class="areas-note fade-in-up delay-2">Not sure if we cover your suburb? <a href="tel:0469371121">Call us on 0469 371 121</a> — we're always expanding our service area.</p>
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 7: CARE IN YOUR LANGUAGE ===================== -->
+    <section class="language-section" aria-labelledby="language-heading">
+        <div class="section-inner">
+            <div class="section-header-centred fade-in-up">
+<h2 class="section-heading" id="language-heading">Care that speaks your <em>language</em></h2>
+                <p class="section-sub centred">Language-matched care isn't just about words — it's about understanding culture, family dynamics, and what truly matters to your loved one.</p>
+            </div>
+
+            <div class="language-scroll" role="list">
+
+                <a href="/languages/hindi-home-care-melbourne.html" class="language-card fade-in-up delay-1" role="listitem">
+                    <div class="lang-script" aria-hidden="true">हि</div>
+                    <div class="lang-name">Hindi</div>
+                    <div class="lang-native">हिंदी</div>
+                    <span class="lang-link">
+                        Explore care in Hindi
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/languages/punjabi-home-care-melbourne.html" class="language-card fade-in-up delay-2" role="listitem">
+                    <div class="lang-script" aria-hidden="true">ਪੰ</div>
+                    <div class="lang-name">Punjabi</div>
+                    <div class="lang-native">ਪੰਜਾਬੀ</div>
+                    <span class="lang-link">
+                        Explore care in Punjabi
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/languages/urdu-home-care-melbourne.html" class="language-card fade-in-up delay-3" role="listitem">
+                    <div class="lang-script" aria-hidden="true">اردو</div>
+                    <div class="lang-name">Urdu</div>
+                    <div class="lang-native">اردو</div>
+                    <span class="lang-link">
+                        Explore care in Urdu
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/languages/tamil-home-care-melbourne.html" class="language-card fade-in-up delay-4" role="listitem">
+                    <div class="lang-script" aria-hidden="true">த</div>
+                    <div class="lang-name">Tamil</div>
+                    <div class="lang-native">தமிழ்</div>
+                    <span class="lang-link">
+                        Explore care in Tamil
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+                <a href="/languages/malay-home-care-melbourne.html" class="language-card fade-in-up delay-1" role="listitem">
+                    <div class="lang-script" aria-hidden="true">BM</div>
+                    <div class="lang-name">Malay</div>
+                    <div class="lang-native">Bahasa Melayu</div>
+                    <span class="lang-link">
+                        Explore care in Malay
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 8: SOCIAL PROOF ===================== -->
+    <section class="social-proof" aria-labelledby="proof-heading">
+        <div class="section-inner">
+
+            <!-- Stat bar -->
+            <div class="stat-bar fade-in-up" role="list" aria-label="Key statistics">
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number" aria-label="500 plus">500+</div>
+                    <p class="stat-desc">Families supported across Melbourne's south-east</p>
+                </div>
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number">24/7</div>
+                    <p class="stat-desc">Availability — day, night, weekends, public holidays</p>
+                </div>
+                <div class="stat-item" role="listitem">
+                    <div class="stat-number" aria-label="5 star">5.0★</div>
+                    <p class="stat-desc">Average Google review rating</p>
+                </div>
+            </div>
+
+            <hr class="stat-divider" aria-hidden="true">
+
+            <!-- Reviews -->
+            <div class="section-header-centred fade-in-up">
+                <h2 class="section-heading" id="proof-heading">What Melbourne families <em>say</em></h2>
+            </div>
+
+            <div class="reviews-grid" role="list">
+
+                <div class="review-card fade-in-up delay-1" role="listitem">
+                    <span class="review-quote-mark" aria-hidden="true">"</span>
+                    <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                    <p class="review-text">Finally, a home care provider that truly understood our family. The care team was patient, warm and always on time. I cannot recommend J.PEER Health highly enough.</p>
+                    <div>
+                        <span class="review-author">Priya S.</span>
+                        <span class="review-location"> · Dandenong</span>
+                    </div>
+                </div>
+
+                <div class="review-card fade-in-up delay-2" role="listitem">
+                    <span class="review-quote-mark" aria-hidden="true">"</span>
+                    <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                    <p class="review-text">When Dad came home from hospital, we didn't know where to turn. J.PEER Health stepped in immediately and made the transition seamless. They treated him with such dignity.</p>
+                    <div>
+                        <span class="review-author">Michael T.</span>
+                        <span class="review-location"> · Berwick</span>
+                    </div>
+                </div>
+
+                <div class="review-card fade-in-up delay-3" role="listitem">
+                    <span class="review-quote-mark" aria-hidden="true">"</span>
+                    <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                    <p class="review-text">Having a carer who speaks our language made such a difference. Mum finally felt comfortable and understood. This is what care should feel like.</p>
+                    <div>
+                        <span class="review-author">Gurpreet K.</span>
+                        <span class="review-location"> · Noble Park</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="reviews-cta fade-in-up">
+                <a href="#" aria-label="Read more reviews on Google (opens Google Reviews)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    Read more reviews on Google
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ===================== SECTION 9: TRUST BAR ===================== -->
+    <div class="trust-bar" role="region" aria-label="Regulatory and compliance information">
+        <div class="trust-bar-inner">
+            <div class="trust-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                <span>Family-founded, locally owned &amp; operated</span>
+            </div>
+            <div class="trust-badge-divider" aria-hidden="true"></div>
+            <div class="trust-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Available 24 hours, 7 days a week</span>
+            </div>
+            <div class="trust-badge-divider" aria-hidden="true"></div>
+            <div class="trust-badge muted">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                <span>ABN: 16 683 516 761</span>
+            </div>
+            <div class="trust-badge-divider" aria-hidden="true"></div>
+            <div class="trust-badge muted">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span>Regulated under the Aged Care Act 2024</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================== SECTION 10: FINAL CTA ===================== -->
+    <section class="final-cta" aria-labelledby="cta-heading">
+        <div class="final-cta-inner">
+            <div class="cta-left fade-in-up">
+                <h2 class="cta-heading" id="cta-heading">Let's find the right care for your <em>family.</em></h2>
+                <p class="cta-sub">Every journey starts with a friendly conversation. No pressure, no obligation — just a chat about what you need.</p>
+
+                <div class="cta-phone-block">
+                    <p class="cta-phone-label">Speak with our team</p>
+                    <a href="tel:0469371121" class="cta-phone-number">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        0469 371 121
+                    </a>
+                    <span class="cta-or">or fill in the form and we'll call you</span>
+                </div>
+
+                <div class="cta-hours">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Available 24/7 — including weekends and public holidays
+                </div>
+            </div>
+
+            <div class="enquiry-form-card fade-in-up delay-2">
+                <p class="form-title">Tell us about your loved one</p>
+                <form id="enquiryForm" novalidate aria-label="Care enquiry form">
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Full name <span class="required" aria-label="required">*</span></label>
+                                <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone number <span class="required" aria-label="required">*</span></label>
+                                <input class="form-input" type="tel" id="phone" name="phone" placeholder="04xx xxx xxx" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email address</label>
+                            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="suburb">Your suburb</label>
+                            <select class="form-select" id="suburb" name="suburb">
+                                <option value="" disabled selected>Select your suburb</option>
+                                <option value="dandenong">Dandenong</option>
+                                <option value="berwick">Berwick</option>
+                                <option value="cranbourne">Cranbourne</option>
+                                <option value="clyde">Clyde / Clyde North</option>
+                                <option value="noble-park">Noble Park</option>
+                                <option value="carrum-downs">Carrum Downs</option>
+                                <option value="narre-warren">Narre Warren</option>
+                                <option value="hallam">Hallam</option>
+                                <option value="endeavour-hills">Endeavour Hills</option>
+                                <option value="pakenham">Pakenham</option>
+                                <option value="other">Other / Not listed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="form-label">I'm looking for care for</p>
+                            <div class="care-toggle">
+                                <label class="care-toggle-option">
+                                    <input type="radio" name="care_for" value="myself">
+                                    <span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        Myself
+                                    </span>
+                                </label>
+                                <label class="care-toggle-option">
+                                    <input type="radio" name="care_for" value="parent">
+                                    <span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                                        A parent or loved one
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">How can we help?</label>
+                            <textarea class="form-textarea" id="message" name="message" rows="3" placeholder="Tell us a little about what you're looking for…"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Begin Your Heartfelt Care Journey</button>
+
+                        <p class="form-reassurance">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            No obligation. We'll call you for a friendly chat.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-main">
+            <!-- Column 1: Brand -->
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="J.PEER Health" class="footer-logo">
+                <p class="footer-tagline">Heartfelt Care</p>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <a href="tel:0469371121">0469 371 121</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:Care@Jpeerhealth.com">Care@Jpeerhealth.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Available 24/7</span>
+                </div>
+                <div class="footer-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Available 24/7 — including weekends
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div>
+                <h3 class="footer-col-heading">Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="/services/personal-care.html">Personal Care</a></li>
+                    <li><a href="/services/domestic-assistance.html">Domestic Assistance</a></li>
+                    <li><a href="/services/social-community-support.html">Social &amp; Community Support</a></li>
+                    <li><a href="/services/nursing-health-support.html">Nursing &amp; Health Support</a></li>
+                    <li><a href="/services/respite-care.html">Respite Care</a></li>
+                    <li><a href="/services/dementia-care.html">Dementia Care</a></li>
+                    <li><a href="/services/post-hospital-care.html">Post-Hospital Care</a></li>
+                    <li><a href="/services/24-7-overnight-care.html">24/7 &amp; Overnight Care</a></li>
+                    <li><a href="/services/support-at-home.html">Support at Home Program</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Explore -->
+            <div>
+                <h3 class="footer-col-heading">Explore</h3>
+                <ul class="footer-links">
+                    <li><a href="/about/our-story.html">About Us</a></li>
+                    <li><a href="/about/our-team.html">Our Team</a></li>
+                    <li><a href="/about/our-values.html">Our Values</a></li>
+                    <li><a href="/areas/">Areas We Serve</a></li>
+                    <li><a href="/languages/hindi-home-care-melbourne.html">Care in Your Language</a></li>
+                    <li><a href="/pricing.html">Pricing &amp; Fees</a></li>
+                    <li><a href="/resources/faqs.html">FAQs</a></li>
+                    <li><a href="/resources/blog.html">Blog</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Compliance -->
+            <div>
+                <h3 class="footer-col-heading">About J.PEER Health</h3>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    <span>Family-founded, locally owned &amp; operated</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    <span>Care in Hindi, Punjabi, Urdu, Tamil &amp; Malay</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    <span>ABN: 16 683 516 761</span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>My Aged Care: <a href="tel:1800200422">1800 200 422</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>OPAN: <a href="tel:1800700600">1800 700 600</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>ACQSC: <a href="tel:1800951822">1800 951 822</a></span>
+                </div>
+                <div class="footer-compliance-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span><a href="/contact.html">Complaints Process</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <div class="footer-bottom-legal">
+                    <span>© 2026 J.PEER Health Pty Ltd. All rights reserved.</span>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+                    <span class="sep" aria-hidden="true">·</span>
+                    <span>ABN: 16 683 516 761</span>
+                </div>
+                <p class="footer-languages">
+                    <strong>We provide care in:</strong> English, Hindi, Punjabi, Urdu, Tamil, Malay
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===================== STICKY MOBILE CTA ===================== -->
+    <div class="sticky-cta" role="complementary" aria-label="Call to action">
         <a href="tel:0469371121">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            Free Care Consultation — Call Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Get Your Free Care Consultation
         </a>
     </div>
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mobileNav.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-        });
-        mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                mobileNav.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-    </script>
+    <!-- ===================== CONSULTATION MODAL ===================== -->
+    <div id="consultModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-heading" hidden>
+        <div class="modal-card">
+
+            <button class="modal-close" id="modalClose" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <div class="modal-header">
+                <div class="modal-badge">Free &amp; No Obligation</div>
+                <h2 class="modal-heading" id="modal-heading">Book your free care consultation</h2>
+                <p class="modal-subheading">Leave your details and we'll call you back — usually within 2 hours.</p>
+            </div>
+
+            <form id="consultForm" novalidate>
+                <input type="hidden" name="access_key" value="77006307-dbcf-4b2c-b606-cbc303a742ea">
+                <input type="hidden" name="subject" value="Free Consultation Request — jpeerhealth.com">
+                <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1">
+
+                <div class="modal-form-grid">
+
+                    <div class="form-group">
+                        <label class="form-label" for="modal-name">Your name <span class="required" aria-label="required">*</span></label>
+                        <input class="form-input" type="text" id="modal-name" name="name" placeholder="First and last name" required autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="modal-phone">Best phone number <span class="required" aria-label="required">*</span></label>
+                        <input class="form-input" type="tel" id="modal-phone" name="phone" placeholder="04xx xxx xxx" required autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="modal-suburb">Your suburb</label>
+                        <select class="form-select" id="modal-suburb" name="suburb">
+                            <option value="" disabled selected>Select your suburb</option>
+                            <option>Dandenong</option>
+                            <option>Berwick</option>
+                            <option>Cranbourne</option>
+                            <option>Clyde / Clyde North</option>
+                            <option>Noble Park</option>
+                            <option>Carrum Downs</option>
+                            <option>Narre Warren</option>
+                            <option>Hallam</option>
+                            <option>Endeavour Hills</option>
+                            <option>Pakenham</option>
+                            <option>Other / Not listed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="modal-language">Preferred language</label>
+                        <select class="form-select" id="modal-language" name="language">
+                            <option value="" disabled selected>Select language (optional)</option>
+                            <option>English</option>
+                            <option>Hindi</option>
+                            <option>Punjabi</option>
+                            <option>Urdu</option>
+                            <option>Tamil</option>
+                            <option>Malay</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit modal-submit" id="consultSubmitBtn">
+                        Request My Free Consultation
+                    </button>
+
+                    <p class="form-reassurance">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        No obligation. We'll call you for a friendly chat within 2 hours.
+                    </p>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="js/script.js" defer></script>
 </body>
 </html>
