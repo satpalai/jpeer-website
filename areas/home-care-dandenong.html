@@ -13,7 +13,7 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "HomeAndConstructionBusiness",
         "name": "J.PEER Health",
         "description": "Compassionate home care services in Dandenong and Melbourne's south-east.",
         "url": "https://jpeerhealth.com/areas/home-care-dandenong",
@@ -293,7 +293,10 @@
             </div>
             <div class="enquiry-form-card fade-in-up delay-2">
                 <p class="form-title">Tell us about your loved one</p>
-                <form novalidate aria-label="Care enquiry form">
+                <form id="enquiryForm" novalidate aria-label="Care enquiry form">
+                    <input type="hidden" name="access_key" value="77006307-dbcf-4b2c-b606-cbc303a742ea">
+                    <input type="hidden" name="subject" value="New Care Enquiry — jpeerhealth.com">
+                    <input type="checkbox" name="botcheck" style="display:none;">
                     <div class="form-grid">
                         <div class="form-row">
                             <div class="form-group">

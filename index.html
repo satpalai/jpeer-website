@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Care That Truly Feels Like Home | J.PEER Health — Heartfelt Care</title>
+    <title>Home Care Melbourne | J.PEER Health — Heartfelt Care</title>
     <meta name="description" content="Compassionate home care in Melbourne's south-east. Personal care, dementia support, nursing and more — delivered in your language, your way. Call 0469 371 121.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +32,7 @@
     }
     </script>
     <!-- FONT SWAP: Replace 'DM Sans' → 'PP Neue Medium', 'Fraunces' → 'Recoleta' when licences are in place -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jpeerhealth.com/"}]}</script>
 </head>
 <body>
 
@@ -660,6 +661,33 @@
                         <div class="form-group">
                             <label class="form-label" for="message">How can we help?</label>
                             <textarea class="form-textarea" id="message" name="message" rows="3" placeholder="Tell us a little about what you're looking for…"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="home-language">Preferred language</label>
+                                <select class="form-select" id="home-language" name="language">
+                                    <option value="" disabled selected>Select language</option>
+                                    <option value="english">English</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="punjabi">Punjabi</option>
+                                    <option value="urdu">Urdu</option>
+                                    <option value="tamil">Tamil</option>
+                                    <option value="malay">Malay</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="home-heard">How did you hear about us?</label>
+                                <select class="form-select" id="home-heard" name="heard_about">
+                                    <option value="" disabled selected>Select one</option>
+                                    <option>Google search</option>
+                                    <option>Referral from friend or family</option>
+                                    <option>My Aged Care</option>
+                                    <option>Hospital or clinic</option>
+                                    <option>Social media</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
                         </div>
 
                         <button type="submit" class="btn-submit">Begin Your Heartfelt Care Journey</button>
