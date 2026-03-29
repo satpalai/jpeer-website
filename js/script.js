@@ -45,17 +45,121 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
 });
 
 // =============================================================
-// === FORM SUBMISSIONS VIA WEB3FORMS ===
+// === SECURITY: INPUT LENGTH LIMITS ===
+// Enforce maxlength on all text inputs and textareas that lack one.
+// Prevents oversized payload attacks.
+// =============================================================
+
+document.querySelectorAll('input[type="text"], input[type="tel"]').forEach(input => {
+    if (!input.hasAttribute('maxlength')) input.setAttribute('maxlength', '200');
+});
+document.querySelectorAll('input[type="email"]').forEach(input => {
+    if (!input.hasAttribute('maxlength')) input.setAttribute('maxlength', '254');
+});
+document.querySelectorAll('textarea').forEach(ta => {
+    if (!ta.hasAttribute('maxlength')) ta.setAttribute('maxlength', '2000');
+});
+
+// =============================================================
+// === SECURITY: RATE LIMITING ===
+// Client-side guard against form flooding.
+// Uses localStorage to track submission timestamps.
 //
-// Setup instructions:
-// 1. Go to https://web3forms.com
-// 2. Enter Care@Jpeerhealth.com and click "Create Access Key"
-// 3. Copy your access key and replace 77006307-dbcf-4b2c-b606-cbc303a742ea below
+// Rules:
+//   - Max 5 submissions per hour per browser
+//   - 30-second cooldown between any two submissions
+//   - Form must have been on screen for at least 1.5s (bot filter)
+// =============================================================
+
+const PAGE_LOAD_TIME = Date.now();
+
+const RATE_LIMIT = {
+    maxPerHour:      5,
+    cooldownMs:      30_000,   // 30 seconds between submissions
+    minTimeOnPageMs: 1_500,    // must spend 1.5s on page before submitting
+    storageKey:      'jpeer_sub_log',
+    windowMs:        60 * 60 * 1000, // 1 hour rolling window
+};
+
+function getRateLimitState() {
+    try {
+        const now = Date.now();
+        const raw = localStorage.getItem(RATE_LIMIT.storageKey);
+        const log = raw ? JSON.parse(raw) : [];
+        // Keep only entries within the rolling window
+        return log.filter(ts => typeof ts === 'number' && now - ts < RATE_LIMIT.windowMs);
+    } catch {
+        return [];
+    }
+}
+
+function recordSubmission() {
+    try {
+        const log = getRateLimitState();
+        log.push(Date.now());
+        localStorage.setItem(RATE_LIMIT.storageKey, JSON.stringify(log));
+    } catch { /* localStorage unavailable — graceful degradation */ }
+}
+
+/**
+ * Returns null if allowed, or an error string if blocked.
+ */
+function checkRateLimit() {
+    const now = Date.now();
+
+    // Bot filter: submitted too fast after page load
+    if (now - PAGE_LOAD_TIME < RATE_LIMIT.minTimeOnPageMs) {
+        return 'Please wait a moment before submitting.';
+    }
+
+    const log = getRateLimitState();
+
+    // Cooldown: too soon after last submission
+    if (log.length > 0 && now - log[log.length - 1] < RATE_LIMIT.cooldownMs) {
+        const secsLeft = Math.ceil((RATE_LIMIT.cooldownMs - (now - log[log.length - 1])) / 1000);
+        return `Please wait ${secsLeft} seconds before submitting again.`;
+    }
+
+    // Hourly cap
+    if (log.length >= RATE_LIMIT.maxPerHour) {
+        return 'Too many submissions. Please call us on 0469 371 121.';
+    }
+
+    return null; // Allowed
+}
+
+// =============================================================
+// === SECURITY: INPUT VALIDATION ===
+// Validates email format and phone length before sending to
+// Web3Forms. Prevents garbage data and reduces spam value.
+// =============================================================
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const PHONE_RE = /^[\d\s\+\-\(\)]{6,20}$/;
+
+function validateFormInputs(form) {
+    const name  = form.querySelector('input[name="name"]');
+    const email = form.querySelector('input[type="email"]');
+    const phone = form.querySelector('input[type="tel"]');
+
+    if (name && name.value.trim().length < 2) {
+        return 'Please enter your full name.';
+    }
+    if (email && email.value.trim() && !EMAIL_RE.test(email.value.trim())) {
+        return 'Please enter a valid email address.';
+    }
+    if (phone && phone.value.trim() && !PHONE_RE.test(phone.value.trim())) {
+        return 'Please enter a valid phone number (digits, spaces, + or - only).';
+    }
+    return null; // Valid
+}
+
+// =============================================================
+// === FORM SUBMISSIONS VIA WEB3FORMS ===
 // =============================================================
 
 const WEB3FORMS_KEY = '77006307-dbcf-4b2c-b606-cbc303a742ea';
 
-// Subject lines for each form (used in email notifications)
 const FORM_SUBJECTS = {
     contactForm:        'New Care Enquiry — jpeerhealth.com',
     callbackForm:       'Callback Request — jpeerhealth.com',
@@ -64,19 +168,39 @@ const FORM_SUBJECTS = {
     pricingEnquiryForm: 'Pricing Enquiry — jpeerhealth.com',
 };
 
-/**
- * Submit a form to Web3Forms and handle UI feedback.
- * @param {HTMLFormElement} form
- */
+function showFormError(btn, message, originalText) {
+    btn.textContent = message;
+    btn.style.background = '#dc2626';
+    btn.disabled = false;
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+    }, 6000);
+}
+
 async function submitForm(form) {
     const btn = form.querySelector('button[type="submit"], .btn-submit');
     if (!btn) return;
 
     const originalText = btn.textContent.trim();
+
+    // --- Security checks before touching the network ---
+    const rateLimitError = checkRateLimit();
+    if (rateLimitError) {
+        showFormError(btn, rateLimitError, originalText);
+        return;
+    }
+
+    const validationError = validateFormInputs(form);
+    if (validationError) {
+        showFormError(btn, validationError, originalText);
+        return;
+    }
+
+    // --- Proceed with submission ---
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    // Build FormData and inject Web3Forms key + subject
     const data = new FormData(form);
     data.set('access_key', WEB3FORMS_KEY);
 
@@ -85,10 +209,13 @@ async function submitForm(form) {
         data.set('subject', FORM_SUBJECTS[formId]);
     }
 
-    // Bot-detection honeypot field (hidden, must stay empty)
+    // Honeypot (must remain empty — bots fill it, humans don't)
     if (!data.has('botcheck')) {
         data.set('botcheck', '');
     }
+
+    // Timestamp helps Web3Forms detect rapid-fire bot submissions
+    data.set('from_page', window.location.href);
 
     try {
         const response = await fetch('https://api.web3forms.com/submit', {
@@ -99,18 +226,19 @@ async function submitForm(form) {
         const result = await response.json();
 
         if (result.success) {
+            recordSubmission(); // Log only after confirmed success
+
             btn.textContent = 'Sent — we\'ll be in touch shortly';
             btn.style.background = '#16a34a';
             form.reset();
 
-            // Show reassurance if it exists
             const reassurance = form.querySelector('.form-reassurance');
             if (reassurance) {
                 reassurance.style.color = '#16a34a';
                 reassurance.style.fontWeight = '600';
             }
 
-            // Reset button after 6 seconds
+            // Keep button locked for 30s to prevent double-submits
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.style.background = '';
@@ -119,25 +247,18 @@ async function submitForm(form) {
                     reassurance.style.color = '';
                     reassurance.style.fontWeight = '';
                 }
-            }, 6000);
+            }, 30_000);
 
         } else {
-            throw new Error(result.message || 'Submission failed');
+            throw new Error('Submission failed');
         }
 
-    } catch (err) {
-        btn.textContent = 'Something went wrong — call us on 0469 371 121';
-        btn.style.background = '#dc2626';
-
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.disabled = false;
-        }, 6000);
+    } catch {
+        showFormError(btn, 'Something went wrong — call us on 0469 371 121', originalText);
     }
 }
 
-// Attach handler to all forms on the page
+// Attach handler to all named forms
 ['contactForm', 'callbackForm', 'enquiryForm', 'guideForm', 'pricingEnquiryForm'].forEach(id => {
     const form = document.getElementById(id);
     if (form) {
@@ -152,16 +273,15 @@ async function submitForm(form) {
 // === CONSULTATION MODAL ===
 // =============================================================
 
-const consultModal  = document.getElementById('consultModal');
-const consultBtn    = document.getElementById('consultBtn');
-const modalClose    = document.getElementById('modalClose');
-const consultForm   = document.getElementById('consultForm');
+const consultModal = document.getElementById('consultModal');
+const consultBtn   = document.getElementById('consultBtn');
+const modalClose   = document.getElementById('modalClose');
+const consultForm  = document.getElementById('consultForm');
 
 function openModal() {
     if (!consultModal) return;
     consultModal.hidden = false;
     document.body.style.overflow = 'hidden';
-    // Focus first input after animation
     setTimeout(() => {
         const first = consultModal.querySelector('input:not([type="hidden"]):not([name="botcheck"])');
         if (first) first.focus();
@@ -178,30 +298,46 @@ function closeModal() {
 if (consultBtn)  consultBtn.addEventListener('click', openModal);
 if (modalClose)  modalClose.addEventListener('click', closeModal);
 
-// Close on overlay click (not card click)
 if (consultModal) {
     consultModal.addEventListener('click', e => {
         if (e.target === consultModal) closeModal();
     });
 }
 
-// Close on Escape key
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && consultModal && !consultModal.hidden) closeModal();
 });
 
-// Consult form submission
+// Consult form submission (inline modal — uses same rate limiting)
 if (consultForm) {
     consultForm.addEventListener('submit', async e => {
         e.preventDefault();
         const btn = document.getElementById('consultSubmitBtn');
+        if (!btn) return;
+
         const originalText = btn.textContent.trim();
+
+        // Security checks
+        const rateLimitError = checkRateLimit();
+        if (rateLimitError) {
+            showFormError(btn, rateLimitError, originalText);
+            return;
+        }
+
+        const validationError = validateFormInputs(consultForm);
+        if (validationError) {
+            showFormError(btn, validationError, originalText);
+            return;
+        }
+
         btn.textContent = 'Sending…';
         btn.disabled = true;
 
         const data = new FormData(consultForm);
         data.set('access_key', WEB3FORMS_KEY);
         data.set('subject', 'Free Consultation Request — jpeerhealth.com');
+        data.set('from_page', window.location.href);
+        if (!data.has('botcheck')) data.set('botcheck', '');
 
         try {
             const res = await fetch('https://api.web3forms.com/submit', {
@@ -211,7 +347,9 @@ if (consultForm) {
             const result = await res.json();
 
             if (result.success) {
-                // Replace form with success message
+                recordSubmission();
+
+                // Replace form with success state (hardcoded strings — no user data rendered)
                 consultForm.innerHTML = `
                     <div style="text-align:center;padding:2rem 1rem;">
                         <div style="width:56px;height:56px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
@@ -225,16 +363,10 @@ if (consultForm) {
                         </a>
                     </div>`;
             } else {
-                throw new Error(result.message);
+                throw new Error('Submission failed');
             }
         } catch {
-            btn.textContent = 'Something went wrong — please call 0469 371 121';
-            btn.style.background = '#dc2626';
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 6000);
+            showFormError(btn, 'Something went wrong — please call 0469 371 121', originalText);
         }
     });
 }
