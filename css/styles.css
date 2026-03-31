@@ -1256,6 +1256,7 @@ h1 em {
     .hero-content { max-width: 520px; }
     .floating-card-right { right: -24px; }
     .diff-grid { grid-template-columns: repeat(4, 1fr); }
+    .diff-grid--3col { grid-template-columns: repeat(3, 1fr); max-width: 900px; margin-left: auto; margin-right: auto; }
     .services-grid { grid-template-columns: repeat(4, 1fr); }
     .origin-inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
     .final-cta-inner { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
@@ -1629,6 +1630,17 @@ textarea:focus-visible {
     color: var(--blue);
     opacity: 0.4;
 }
+.team-card-photo--img {
+    background: none;
+    overflow: hidden;
+}
+.team-card-photo--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+}
 .team-card-info { flex: 1; min-width: 0; }
 .team-card-name {
     font-size: 1rem;
@@ -1654,6 +1666,23 @@ textarea:focus-visible {
     color: var(--text-muted);
 }
 .team-card-languages strong { color: var(--text); font-weight: 600; }
+.team-card--raaja {
+    background: #fffbf0;
+    border-color: #f5e6c8;
+}
+.team-card--raaja:hover {
+    border-color: #e8c97a;
+    box-shadow: 0 8px 32px rgba(230, 180, 80, 0.12);
+}
+.team-card-photo--raaja {
+    background: #fef3d0;
+}
+.team-card-photo--raaja svg {
+    color: #c8860a;
+    opacity: 0.6;
+}
+.team-card-role--raaja { color: #b8730a; }
+.raaja-badge { font-style: normal; margin-left: 0.25rem; }
 .team-note {
     text-align: center;
     margin-top: 2rem;
