@@ -2,6 +2,62 @@
    J.PEER Health — script.js
    ============================================================= */
 
+// === COOKIE CONSENT BANNER (JS-injected — not in HTML body) ===
+(function () {
+    if (localStorage.getItem('jpeer_cookie_consent')) return;
+
+    const banner = document.createElement('div');
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.style.cssText = [
+        'position:fixed',
+        'bottom:0',
+        'left:0',
+        'right:0',
+        'z-index:9999',
+        'background:#1e293b',
+        'color:#f1f5f9',
+        'padding:1rem 1.5rem',
+        'display:flex',
+        'align-items:center',
+        'justify-content:space-between',
+        'gap:1rem',
+        'flex-wrap:wrap',
+        'font-family:inherit',
+        'font-size:0.85rem',
+        'line-height:1.5',
+        'box-shadow:0 -2px 12px rgba(0,0,0,0.15)'
+    ].join(';');
+
+    const text = document.createElement('p');
+    text.style.cssText = 'margin:0;flex:1;min-width:200px;';
+    text.innerHTML = 'We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="/privacy-policy.html" style="color:#93c5fd;text-decoration:underline;">Privacy Policy</a>.';
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Got it';
+    btn.style.cssText = [
+        'background:#3b82f6',
+        'color:#fff',
+        'border:none',
+        'border-radius:6px',
+        'padding:0.5rem 1.25rem',
+        'font-size:0.85rem',
+        'font-weight:600',
+        'cursor:pointer',
+        'white-space:nowrap',
+        'flex-shrink:0'
+    ].join(';');
+
+    btn.addEventListener('click', function () {
+        localStorage.setItem('jpeer_cookie_consent', '1');
+        banner.remove();
+    });
+
+    banner.appendChild(text);
+    banner.appendChild(btn);
+    document.body.appendChild(banner);
+}());
+
 // === MOBILE NAV TOGGLE ===
 const menuToggle = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');

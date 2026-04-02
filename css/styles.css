@@ -322,7 +322,7 @@ h1 em {
     color: var(--text-sub);
     line-height: 1.7;
     margin-bottom: 1.75rem;
-    max-width: 480px;
+    /* max-width: 480px; */
     animation: fadeUp 0.6s ease 0.16s both;
 }
 .hero-actions {
@@ -1429,7 +1429,22 @@ textarea:focus-visible {
     align-items: center;
     margin-top: 2rem;
 }
-.page-hero-content {}
+.page-hero-content {
+    text-align: center;
+    margin: 0 auto;
+}
+.page-hero-content .hero-label,
+.page-hero-content .section-label {
+    justify-content: center;
+}
+.page-hero-content .hero-actions {
+    justify-content: center;
+}
+.page-hero-content .hero-sub {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .page-hero-visual {
     display: flex;
     justify-content: center;
@@ -1839,3 +1854,54 @@ textarea:focus-visible {
     .svc-hero-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
     .areas-grid { grid-template-columns: repeat(5, 1fr); }
 }
+
+/* === FAQ ACCORDION (suburb & area pages) === */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 760px;
+    margin: 2rem auto 0;
+}
+.faq-item {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+.faq-item[open] {
+    border-color: var(--blue-light);
+}
+.faq-question {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--blue);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+}
+.faq-answer {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    line-height: 1.7;
+}
+.faq-answer p { margin: 0; }
