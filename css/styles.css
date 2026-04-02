@@ -1886,6 +1886,7 @@ textarea:focus-visible {
     padding: 1.25rem 1.5rem;
 }
 .faq-question::-webkit-details-marker { display: none; }
+.faq-question::marker { display: none; }
 .faq-question::after {
     content: '+';
     font-size: 1.4rem;
