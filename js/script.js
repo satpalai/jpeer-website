@@ -113,7 +113,7 @@ document.querySelectorAll('input[type="email"]').forEach(input => {
     if (!input.hasAttribute('maxlength')) input.setAttribute('maxlength', '254');
 });
 document.querySelectorAll('textarea').forEach(ta => {
-    if (!ta.hasAttribute('maxlength')) ta.setAttribute('maxlength', '2000');
+    if (!ta.hasAttribute('maxlength')) ta.setAttribute('maxlength', '1000');
 });
 
 // =============================================================
@@ -185,29 +185,152 @@ function checkRateLimit() {
 }
 
 // =============================================================
-// === SECURITY: INPUT VALIDATION ===
-// Validates email format and phone length before sending to
-// Web3Forms. Prevents garbage data and reduces spam value.
+// === SANITISATION & PER-FIELD VALIDATION ===
+// Strips HTML tags, validates each field by type, and surfaces
+// inline error messages directly next to the offending field.
 // =============================================================
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const PHONE_RE = /^[\d\s\+\-\(\)]{6,20}$/;
+function stripHtml(str) {
+    return str.replace(/<[^>]*>/g, '').trim();
+}
 
-function validateFormInputs(form) {
-    const name  = form.querySelector('input[name="name"]');
-    const email = form.querySelector('input[type="email"]');
-    const phone = form.querySelector('input[type="tel"]');
+const EMAIL_RE = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
 
-    if (name && name.value.trim().length < 2) {
-        return 'Please enter your full name.';
+function validateField(field) {
+    if (field.type === 'hidden' || field.type === 'radio' || field.type === 'checkbox') return null;
+    const name = field.name;
+    if (!name || name === 'hp_name' || name === 'botcheck' || name === 'access_key') return null;
+
+    const isRequired = field.hasAttribute('required');
+    const value = field.tagName === 'SELECT' ? field.value : stripHtml(field.value);
+
+    switch (name) {
+        case 'name':
+            if (!value || value.length < 2)
+                return isRequired ? 'Please enter your full name (at least 2 characters).' : null;
+            if (!/^[A-Za-z\s'\-]{2,100}$/.test(value))
+                return 'Name should contain letters and spaces only — no numbers or symbols.';
+            return null;
+
+        case 'email':
+            if (!value) return isRequired ? 'Please enter your email address.' : null;
+            if (!EMAIL_RE.test(value))
+                return 'Please enter a valid email address (e.g. you@example.com).';
+            return null;
+
+        case 'phone':
+            if (!value) return isRequired ? 'Please enter your phone number.' : null;
+            if (!/^0[234]\d{8}$/.test(value.replace(/\D/g, '')))
+                return 'Please enter an Australian number starting with 04, 02, or 03 — 10 digits (e.g. 0412 345 678).';
+            return null;
+
+        case 'message':
+            if (!value) return isRequired ? 'Please tell us a little about what you need.' : null;
+            if (value.length < 10) return 'Please provide a bit more detail — at least 10 characters.';
+            if (value.length > 1000) return 'Message is too long — please keep it under 1000 characters.';
+            return null;
+
+        default:
+            if (name === 'suburb' && field.tagName !== 'SELECT' && value)
+                if (!/^[A-Za-z\s'\-]{2,}$/.test(value))
+                    return 'Suburb should contain letters and spaces only.';
+            if (isRequired && !value) return 'Please complete this field.';
+            return null;
     }
-    if (email && email.value.trim() && !EMAIL_RE.test(email.value.trim())) {
-        return 'Please enter a valid email address.';
-    }
-    if (phone && phone.value.trim() && !PHONE_RE.test(phone.value.trim())) {
-        return 'Please enter a valid phone number (digits, spaces, + or - only).';
-    }
-    return null; // Valid
+}
+
+function showFieldError(field, message) {
+    const existing = field.parentNode.querySelector('.field-error');
+    if (existing) existing.remove();
+    const err = document.createElement('span');
+    err.className = 'field-error';
+    err.setAttribute('role', 'alert');
+    err.setAttribute('aria-live', 'polite');
+    err.textContent = message;
+    field.parentNode.appendChild(err);
+    field.classList.add('input-error');
+    field.setAttribute('aria-invalid', 'true');
+}
+
+function clearFieldError(field) {
+    const existing = field.parentNode.querySelector('.field-error');
+    if (existing) existing.remove();
+    field.classList.remove('input-error');
+    field.removeAttribute('aria-invalid');
+}
+
+function updateSubmitButton(form) {
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    const required = Array.from(form.querySelectorAll('[required]'))
+        .filter(f => f.type !== 'radio' && f.type !== 'checkbox' && f.type !== 'hidden');
+    btn.disabled = !required.every(f => validateField(f) === null);
+}
+
+function showFormSuccess(form) {
+    const nameField = form.querySelector('input[name="name"]');
+    const firstName = nameField
+        ? stripHtml(nameField.value).split(' ')[0].replace(/[^A-Za-z'\-]/g, '')
+        : '';
+
+    const div = document.createElement('div');
+    div.className = 'form-success';
+    div.setAttribute('role', 'alert');
+    div.setAttribute('aria-live', 'polite');
+    div.innerHTML =
+        '<div class="form-success-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"' +
+            ' stroke-linecap="round" stroke-linejoin="round" width="40" height="40">' +
+            '<polyline points="20 6 9 17 4 12"/></svg>' +
+        '</div>' +
+        '<h3 class="form-success-heading"></h3>' +
+        '<p class="form-success-message">We\'ve received your enquiry and a member of our' +
+        ' care team will be in touch shortly \u2014 usually within the hour.</p>' +
+        '<a href="tel:0469371121" class="form-success-call">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+            ' width="16" height="16" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18' +
+            ' 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2' +
+            ' 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45' +
+            ' 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339' +
+            ' 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>' +
+            'Or call us now: 0469\u202f371\u202f121' +
+        '</a>';
+
+    // Set heading safely via textContent — never concatenate user data into innerHTML
+    div.querySelector('.form-success-heading').textContent =
+        'Thank you' + (firstName ? ', ' + firstName : '') + '!';
+
+    form.style.display = 'none';
+    form.insertAdjacentElement('afterend', div);
+}
+
+function attachFormValidation(form) {
+    updateSubmitButton(form);
+    form.querySelectorAll(
+        'input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"])' +
+        ':not([name="hp_name"]):not([name="botcheck"]), textarea, select'
+    ).forEach(field => {
+        field.addEventListener('blur', () => {
+            const v = field.tagName === 'SELECT' ? field.value : stripHtml(field.value);
+            const err = validateField(field);
+            if (err && (field.hasAttribute('required') || v.length > 0)) showFieldError(field, err);
+            else clearFieldError(field);
+            updateSubmitButton(form);
+        });
+        const onInput = () => {
+            if (field.classList.contains('input-error')) {
+                const err = validateField(field);
+                if (!err) clearFieldError(field);
+                else {
+                    const span = field.parentNode.querySelector('.field-error');
+                    if (span) span.textContent = err;
+                }
+            }
+            updateSubmitButton(form);
+        };
+        field.addEventListener('input', onInput);
+        field.addEventListener('change', onInput);
+    });
 }
 
 // =============================================================
@@ -223,6 +346,15 @@ const FORM_SUBJECTS = {
     guideForm:          'Home Care Guide Download Request',
     pricingEnquiryForm: 'Pricing Enquiry — jpeerhealth.com',
 };
+
+function buildDynamicSubject(baseSubject, personName) {
+    if (!personName) return baseSubject;
+    const dashIdx = baseSubject.indexOf(' \u2014 ');
+    if (dashIdx !== -1) {
+        return baseSubject.slice(0, dashIdx) + ' from ' + personName + baseSubject.slice(dashIdx);
+    }
+    return baseSubject + ' from ' + personName;
+}
 
 function showFormError(btn, message, originalText) {
     btn.textContent = message;
@@ -240,6 +372,23 @@ async function submitForm(form) {
 
     const originalText = btn.textContent.trim();
 
+    // Per-field validation with inline error display
+    let hasErrors = false;
+    form.querySelectorAll(
+        'input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"])' +
+        ':not([name="hp_name"]):not([name="botcheck"]), textarea, select'
+    ).forEach(field => {
+        const err = validateField(field);
+        if (err) { showFieldError(field, err); hasErrors = true; }
+        else clearFieldError(field);
+    });
+
+    if (hasErrors) {
+        const first = form.querySelector('.input-error');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+
     // --- Security checks before touching the network ---
     const rateLimitError = checkRateLimit();
     if (rateLimitError) {
@@ -247,30 +396,34 @@ async function submitForm(form) {
         return;
     }
 
-    const validationError = validateFormInputs(form);
-    if (validationError) {
-        showFormError(btn, validationError, originalText);
+    // Text honeypot — silently fake success if a bot filled it
+    const hpField = form.querySelector('input[name="hp_name"]');
+    if (hpField && hpField.value.trim() !== '') {
+        showFormSuccess(form);
         return;
     }
 
     // --- Proceed with submission ---
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Sending\u2026';
     btn.disabled = true;
 
     const data = new FormData(form);
+
+    // Sanitize text inputs before sending
+    ['name', 'email', 'phone', 'message'].forEach(fieldName => {
+        if (data.has(fieldName)) data.set(fieldName, stripHtml(data.get(fieldName)));
+    });
+    data.delete('hp_name');
+
     data.set('access_key', WEB3FORMS_KEY);
 
     const formId = form.id;
-    if (FORM_SUBJECTS[formId]) {
-        data.set('subject', FORM_SUBJECTS[formId]);
-    }
+    const baseSubject = FORM_SUBJECTS[formId] || 'New Enquiry \u2014 jpeerhealth.com';
+    const nameField = form.querySelector('input[name="name"]');
+    const personName = nameField ? stripHtml(nameField.value) : '';
+    data.set('subject', buildDynamicSubject(baseSubject, personName));
 
-    // Honeypot (must remain empty — bots fill it, humans don't)
-    if (!data.has('botcheck')) {
-        data.set('botcheck', '');
-    }
-
-    // Timestamp helps Web3Forms detect rapid-fire bot submissions
+    if (!data.has('botcheck')) data.set('botcheck', '');
     data.set('from_page', window.location.href);
 
     try {
@@ -282,39 +435,19 @@ async function submitForm(form) {
         const result = await response.json();
 
         if (result.success) {
-            recordSubmission(); // Log only after confirmed success
-
-            btn.textContent = 'Sent — we\'ll be in touch shortly';
-            btn.style.background = '#16a34a';
-            form.reset();
-
-            const reassurance = form.querySelector('.form-reassurance');
-            if (reassurance) {
-                reassurance.style.color = '#16a34a';
-                reassurance.style.fontWeight = '600';
-            }
-
-            // Keep button locked for 30s to prevent double-submits
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-                if (reassurance) {
-                    reassurance.style.color = '';
-                    reassurance.style.fontWeight = '';
-                }
-            }, 30_000);
-
+            recordSubmission();
+            showFormSuccess(form);
         } else {
             throw new Error('Submission failed');
         }
 
     } catch {
         showFormError(btn, 'Something went wrong — call us on 0469 371 121', originalText);
+        btn.disabled = false;
     }
 }
 
-// Attach handler to all named forms
+// Attach submit handler to all named forms
 ['contactForm', 'callbackForm', 'enquiryForm', 'guideForm', 'pricingEnquiryForm'].forEach(id => {
     const form = document.getElementById(id);
     if (form) {
@@ -323,6 +456,31 @@ async function submitForm(form) {
             submitForm(form);
         });
     }
+});
+
+// =============================================================
+// === HONEYPOT INJECTION & REAL-TIME VALIDATION SETUP ===
+// Inject a visually-hidden text honeypot into every form.
+// Bots auto-fill visible-looking hidden fields; humans never do.
+// =============================================================
+
+document.querySelectorAll('form[id]').forEach(form => {
+    if (form.querySelector('[name="hp_name"]')) return;
+    const hp = document.createElement('input');
+    hp.type = 'text';
+    hp.name = 'hp_name';
+    hp.tabIndex = -1;
+    hp.setAttribute('autocomplete', 'off');
+    hp.setAttribute('aria-hidden', 'true');
+    hp.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;' +
+                       'opacity:0;pointer-events:none;';
+    form.appendChild(hp);
+});
+
+// Attach real-time validation + submit-button gating to every form
+['contactForm', 'callbackForm', 'enquiryForm', 'guideForm', 'pricingEnquiryForm', 'consultForm'].forEach(id => {
+    const form = document.getElementById(id);
+    if (form) attachFormValidation(form);
 });
 
 // =============================================================
@@ -364,7 +522,7 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && consultModal && !consultModal.hidden) closeModal();
 });
 
-// Consult form submission (inline modal — uses same rate limiting)
+// Consult form submission (inline modal — uses same rate limiting and validation)
 if (consultForm) {
     consultForm.addEventListener('submit', async e => {
         e.preventDefault();
@@ -373,6 +531,19 @@ if (consultForm) {
 
         const originalText = btn.textContent.trim();
 
+        // Per-field validation with inline error display
+        let hasErrors = false;
+        consultForm.querySelectorAll(
+            'input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"])' +
+            ':not([name="hp_name"]):not([name="botcheck"]), textarea, select'
+        ).forEach(field => {
+            const err = validateField(field);
+            if (err) { showFieldError(field, err); hasErrors = true; }
+            else clearFieldError(field);
+        });
+
+        if (hasErrors) return;
+
         // Security checks
         const rateLimitError = checkRateLimit();
         if (rateLimitError) {
@@ -380,18 +551,26 @@ if (consultForm) {
             return;
         }
 
-        const validationError = validateFormInputs(consultForm);
-        if (validationError) {
-            showFormError(btn, validationError, originalText);
+        // Text honeypot
+        const hpField = consultForm.querySelector('input[name="hp_name"]');
+        if (hpField && hpField.value.trim() !== '') {
+            showFormSuccess(consultForm);
             return;
         }
 
-        btn.textContent = 'Sending…';
+        btn.textContent = 'Sending\u2026';
         btn.disabled = true;
 
         const data = new FormData(consultForm);
+        ['name', 'email', 'phone', 'message'].forEach(fieldName => {
+            if (data.has(fieldName)) data.set(fieldName, stripHtml(data.get(fieldName)));
+        });
+        data.delete('hp_name');
+
         data.set('access_key', WEB3FORMS_KEY);
-        data.set('subject', 'Free Consultation Request — jpeerhealth.com');
+        const consultNameField = consultForm.querySelector('input[name="name"]');
+        const consultPersonName = consultNameField ? stripHtml(consultNameField.value) : '';
+        data.set('subject', buildDynamicSubject('Free Consultation Request \u2014 jpeerhealth.com', consultPersonName));
         data.set('from_page', window.location.href);
         if (!data.has('botcheck')) data.set('botcheck', '');
 
@@ -404,25 +583,13 @@ if (consultForm) {
 
             if (result.success) {
                 recordSubmission();
-
-                // Replace form with success state (hardcoded strings — no user data rendered)
-                consultForm.innerHTML = `
-                    <div style="text-align:center;padding:2rem 1rem;">
-                        <div style="width:56px;height:56px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                        </div>
-                        <h3 style="font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;letter-spacing:-0.01em;">We'll call you shortly</h3>
-                        <p style="font-size:0.92rem;color:var(--text-sub);line-height:1.6;margin-bottom:1.5rem;">Thank you — a member of our care team will be in touch within 2 hours. We're available 24/7.</p>
-                        <a href="tel:0469371121" style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.92rem;font-weight:600;color:var(--blue);text-decoration:none;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                            Or call us now: 0469 371 121
-                        </a>
-                    </div>`;
+                showFormSuccess(consultForm);
             } else {
                 throw new Error('Submission failed');
             }
         } catch {
             showFormError(btn, 'Something went wrong — please call 0469 371 121', originalText);
+            btn.disabled = false;
         }
     });
 }
