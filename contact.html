@@ -186,18 +186,19 @@
             line-height: 1.5;
         }
 
-        /* Map placeholder */
-        .map-placeholder {
-            background: var(--off-white);
+        /* Map embed */
+        .map-embed {
             border-radius: 12px;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border: 1.5px dashed var(--border);
+            overflow: hidden;
             margin-top: 1rem;
+            height: 280px;
+            border: 1.5px solid var(--border);
+        }
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
 
         /* Enquiry form */
@@ -468,9 +469,15 @@
                     </div>
                 </div>
 
-                <!-- Map placeholder -->
-                <div class="map-placeholder" role="img" aria-label="Map of J.PEER Health's service area across south-east Melbourne">
-                    Google Map — service area south-east Melbourne
+                <!-- Google Map — service area south-east Melbourne -->
+                <div class="map-embed">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101286.94!2d145.1!3d-38.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad615c4e4f2e397%3A0x5045675218ce6e0!2sDandenong%20VIC%203175!5e0!3m2!1sen!2sau!4v1"
+                        title="J.PEER Health service area — south-east Melbourne"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
                 </div>
 
             </div>
