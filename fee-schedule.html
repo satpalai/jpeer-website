@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Support at Home — Fee Schedule | J.PEER Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           VARIABLES
+           ============================================================ */
+        :root {
+            /* Brand */
+            --blue:         #1C8DD9;
+            --blue-dark:    #1574B5;
+            --blue-light:   #deeef9;
+            --navy:         #0F2B3F;
+            --black:        #1a1a1a;
+            --text:         #1A1D21;
+            --text-sub:     #52575D;
+            --text-muted:   #8A8F96;
+            --white:        #FFFFFF;
+            --off-white:    #F8F9FA;
+            --border:       #E5E7EB;
+            --border-light: #f0f0f0;
+
+            /* Clinical palette — teal green */
+            --clin-hdr:      #b4e2d8;
+            --clin-sub:      #d6f0eb;
+            --clin-sub-text: #164d43;
+            --clin-alt:      #f2faf8;
+            --clin-badge:    #bce8e0;
+            --clin-badge-txt:#164d43;
+            --clin-stripe:   #0d9e86;
+
+            /* Independence palette — brand blue */
+            --ind-hdr:       #b8d9f0;
+            --ind-sub:       #d4ecfa;
+            --ind-sub-text:  #0c3d6a;
+            --ind-alt:       #f0f7fd;
+            --ind-badge:     #c4e3f5;
+            --ind-badge-txt: #0c3d6a;
+            --ind-stripe:    #1574B5;
+
+            /* Everyday palette — warm peach */
+            --ev-hdr:        #f8d5a8;
+            --ev-sub:        #fde9cc;
+            --ev-sub-text:   #6a2f00;
+            --ev-alt:        #fef9f2;
+            --ev-badge:      #fdddb0;
+            --ev-badge-txt:  #6a2f00;
+            --ev-stripe:     #c25e00;
+
+            /* Notes */
+            --notes-bg:      #edf5ff;
+            --notes-border:  #b6d8f2;
+        }
+
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: #d8dde5;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .italic-accent {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+            font-style: italic;
+        }
+
+        /* ============================================================
+           PRINT-ONLY ELEMENTS — hidden on screen
+           ============================================================ */
+        .print-header,
+        .print-footer { display: none; }
+
+        /* ============================================================
+           DOCUMENT WRAPPER (screen only)
+           ============================================================ */
+        .doc-wrapper {
+            max-width: 940px;
+            margin: 2.5rem auto 4rem;
+            background: var(--white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 12px 48px rgba(0,0,0,0.13);
+            overflow: hidden;
+        }
+
+        /* ============================================================
+           SCREEN HEADER
+           ============================================================ */
+        .screen-header {
+            background: var(--black);
+            padding: 1.1rem 2.25rem;
+        }
+        .screen-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .header-logo { height: 36px; width: auto; }
+        .header-right { text-align: right; }
+        .header-tagline {
+            display: block;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .header-contact {
+            display: block;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.38);
+            margin-top: 0.2rem;
+            letter-spacing: 0.025em;
+        }
+
+        /* ============================================================
+           TITLE SECTION
+           ============================================================ */
+        .title-section {
+            padding: 2.5rem 2.5rem 2.25rem;
+            background: var(--white);
+            border-bottom: 2px solid var(--border);
+            border-left: 5px solid var(--blue);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .title-left { flex: 1; }
+        .title-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.55rem;
+        }
+        h1.doc-title {
+            font-size: 2.65rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.1rem;
+        }
+        h1.doc-title .italic-part {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--blue);
+            font-size: 2.8rem;
+        }
+        .title-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+        }
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border-radius: 100px;
+            padding: 0.28rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .badge-pill.date {
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            border: 1px solid rgba(28,141,217,0.25);
+            font-weight: 600;
+        }
+        .badge-pill.info {
+            background: var(--off-white);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+        .badge-dot {
+            width: 6px; height: 6px;
+            background: var(--blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .title-right { padding-top: 0.25rem; }
+        .abn-block {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.85rem 1.1rem;
+            text-align: right;
+            min-width: 170px;
+        }
+        .abn-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .abn-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.06em;
+        }
+
+        /* ============================================================
+           FEE TABLES — shared
+           ============================================================ */
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+
+        /* Category header row */
+        .cat-row > th {
+            padding: 0.85rem 1.5rem 0.8rem;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .cat-name {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-right: 0.65rem;
+            letter-spacing: -0.01em;
+        }
+        .cat-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 100px;
+            padding: 0.18rem 0.7rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            vertical-align: middle;
+        }
+
+        /* Column header row */
+        .col-row > th {
+            background: var(--black);
+            color: rgba(255,255,255,0.78);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.055em;
+            padding: 0.5rem 0.6rem;
+            text-align: right;
+            white-space: nowrap;
+        }
+        .col-row > th.th-svc {
+            text-align: left;
+            padding-left: 1.5rem;
+            width: 30%;
+        }
+        .col-row > th.th-unit {
+            text-align: center;
+            width: 8%;
+        }
+        .col-row > th.th-ph { width: 12%; }
+
+        /* Sub-section header row */
+        .sub-head > td {
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.065em;
+            padding: 0.48rem 0.6rem 0.45rem 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* Data rows */
+        .fee-table tbody tr:not(.sub-head) > td {
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: middle;
+        }
+        .fee-table tbody tr:not(.sub-head) > td:first-child {
+            padding-left: 1.5rem;
+            color: var(--text);
+        }
+        .fee-table tbody tr:not(.sub-head) > td.td-unit {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+        .fee-table tbody tr:not(.sub-head) > td.td-price {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* By-quote rows */
+        .by-quote > td.quote-text {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            text-align: left !important;
+            padding-right: 1.5rem;
+        }
+
+        /* ============================================================
+           CLINICAL section styling
+           ============================================================ */
+        .clinical { border-top: 3px solid var(--clin-stripe); }
+        .clinical .cat-row { background: var(--clin-hdr); }
+        .clinical .sub-head > td { background: var(--clin-sub); color: var(--clin-sub-text); }
+        .clinical .cat-badge { background: var(--clin-badge); color: var(--clin-badge-txt); }
+        .clinical tbody tr:not(.sub-head):nth-child(even) > td:not(.quote-text) {
+            background: var(--clin-alt);
+        }
+
+        /* ============================================================
+           INDEPENDENCE section styling
+           ============================================================ */
+        .independence { border-top: 3px solid var(--ind-stripe); }
+        .independence .cat-row { background: var(--ind-hdr); }
+        .independence .sub-head > td { background: var(--ind-sub); color: var(--ind-sub-text); }
+        .independence .cat-badge { background: var(--ind-badge); color: var(--ind-badge-txt); }
+        .independence tbody tr:not(.sub-head):nth-child(even) > td:not(.quote-text) {
+            background: var(--ind-alt);
+        }
+
+        /* ============================================================
+           EVERYDAY section styling
+           ============================================================ */
+        .everyday { border-top: 3px solid var(--ev-stripe); }
+        .everyday .cat-row { background: var(--ev-hdr); }
+        .everyday .sub-head > td { background: var(--ev-sub); color: var(--ev-sub-text); }
+        .everyday .cat-badge { background: var(--ev-badge); color: var(--ev-badge-txt); }
+        .everyday tbody tr:not(.sub-head):nth-child(even) > td:not(.quote-text) {
+            background: var(--ev-alt);
+        }
+
+        /* ============================================================
+           SECTION GAP
+           ============================================================ */
+        .section-gap {
+            height: 1.75rem;
+            background: var(--off-white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ============================================================
+           NOTES SECTION
+           ============================================================ */
+        .notes-section {
+            background: var(--notes-bg);
+            border-top: 2px solid var(--notes-border);
+            border-left: 5px solid var(--blue);
+            padding: 2rem 2.5rem 2.25rem;
+        }
+        .notes-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-bottom: 1.1rem;
+        }
+        .notes-icon {
+            width: 22px; height: 22px;
+            background: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .notes-icon svg { width: 11px; height: 11px; }
+        .notes-heading-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .notes-heading-text .italic-accent {
+            color: var(--blue);
+            font-size: 1.05rem;
+        }
+        .notes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.72rem;
+        }
+        .notes-list li {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.83rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+        .note-num {
+            width: 20px; height: 20px;
+            background: rgba(28,141,217,0.12);
+            color: var(--blue);
+            border-radius: 50%;
+            font-size: 0.6rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.18rem;
+        }
+
+        /* ============================================================
+           SCREEN FOOTER
+           ============================================================ */
+        .screen-footer {
+            background: var(--black);
+            padding: 1.25rem 2.25rem;
+        }
+        .screen-footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .footer-logo { height: 28px; width: auto; }
+        .footer-tagline {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            color: rgba(255,255,255,0.35);
+            font-size: 0.8rem;
+            border-left: 1px solid rgba(255,255,255,0.12);
+            padding-left: 0.8rem;
+        }
+        .footer-contact {
+            color: rgba(255,255,255,0.38);
+            font-size: 0.7rem;
+            line-height: 1.75;
+            text-align: right;
+        }
+
+        /* ============================================================
+           PRINT MEDIA
+           Chrome → Print → Save as PDF → A4 → Margins: None →
+           Background graphics ON
+           ============================================================ */
+        @media print {
+
+            /* === 1. FORCE COLOUR PRINTING === */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            /* === 2. A4 FULL-BLEED — we own all spacing === */
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            body {
+                background: white !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* === 3. REMOVE SCREEN CHROME === */
+            .doc-wrapper {
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                overflow: visible !important;
+            }
+
+            /* === 4. FIXED/STICKY ELEMENTS REMOVED FROM PRINT === */
+            /* The dedicated print-header/footer divs are not needed;
+               the screen-header and screen-footer print as normal flow. */
+            .print-header,
+            .print-footer { display: none !important; }
+
+            /* === 5. SCREEN HEADER — shows in print, compact === */
+            .screen-header { padding: 4mm 8mm !important; }
+            .header-inner { gap: 1rem !important; }
+            .header-logo { height: 18px !important; }
+            .header-tagline { font-size: 7pt !important; }
+            .header-contact { font-size: 6pt !important; margin-top: 0 !important; }
+
+            /* === 6. TITLE SECTION === */
+            .title-section {
+                padding: 6mm 8mm 5mm !important;
+                border-left-width: 4px !important;
+                gap: 1rem !important;
+            }
+            .title-eyebrow { font-size: 6pt !important; margin-bottom: 2pt !important; }
+            h1.doc-title {
+                font-size: 18pt !important;
+                margin-bottom: 4pt !important;
+                letter-spacing: -0.02em !important;
+            }
+            h1.doc-title .italic-part { font-size: 19pt !important; }
+            .badge-pill { font-size: 6.5pt !important; padding: 1.5pt 5pt !important; }
+            .badge-dot { width: 4px !important; height: 4px !important; }
+            .title-badges { gap: 4pt !important; margin-top: 5pt !important; }
+            .abn-block {
+                padding: 3mm 4mm !important;
+                min-width: 110px !important;
+                border-radius: 5px !important;
+            }
+            .abn-label { font-size: 5pt !important; margin-bottom: 1pt !important; }
+            .abn-value { font-size: 8pt !important; }
+
+            /* === 7. SECTION GAPS — collapse, keep dividing line === */
+            .section-gap {
+                height: 0 !important;
+                border-top: 0.5px solid #e5e7eb !important;
+                border-bottom: none !important;
+            }
+
+            /* === 8. FEE TABLES: compact for A4 width (595pt usable) === */
+            .fee-table { font-size: 7.5pt !important; }
+
+            /* Category title row */
+            .cat-row > th { padding: 4pt 8pt !important; }
+            .cat-name { font-size: 9pt !important; margin-right: 4pt !important; }
+            .cat-badge { font-size: 6pt !important; padding: 1.5pt 5pt !important; }
+
+            /* Column header row */
+            .col-row > th {
+                font-size: 6pt !important;
+                padding: 3pt 4pt !important;
+                white-space: normal !important;
+                line-height: 1.2 !important;
+            }
+            .col-row > th.th-svc { padding-left: 8pt !important; }
+            .col-row > th.th-unit { width: 7% !important; }
+            .col-row > th.th-ph { width: 11% !important; }
+
+            /* Sub-section header rows */
+            .sub-head > td {
+                font-size: 6.5pt !important;
+                padding: 2.5pt 4pt 2.5pt 8pt !important;
+            }
+
+            /* Data rows */
+            .fee-table tbody tr:not(.sub-head) > td {
+                padding: 3pt 4pt !important;
+            }
+            .fee-table tbody tr:not(.sub-head) > td:first-child {
+                padding-left: 8pt !important;
+            }
+            .td-price { font-size: 7.5pt !important; }
+            .by-quote > td.quote-text {
+                font-size: 7pt !important;
+                padding-right: 8pt !important;
+            }
+
+            /* === 9. PREVENT ROWS SPLITTING ACROSS PAGES === */
+            .fee-table tr,
+            .fee-table tr > td,
+            .fee-table tr > th {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            /* Sub-section header must not be orphaned at bottom of page */
+            .sub-head {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+
+            /* Column headers repeat when table spans pages */
+            .fee-table thead { display: table-header-group !important; }
+            .fee-table tbody { display: table-row-group !important; }
+
+            /* === 10. PAGE BREAKS: one section per page === */
+            .independence {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+            .everyday {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+            .notes-section {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            /* === 11. NOTES SECTION === */
+            .notes-section {
+                padding: 5mm 8mm 6mm !important;
+                border-left-width: 4px !important;
+            }
+            .notes-heading { margin-bottom: 5pt !important; }
+            .notes-heading-text { font-size: 9pt !important; }
+            .notes-icon {
+                width: 16px !important;
+                height: 16px !important;
+                min-width: 16px !important;
+            }
+            .notes-icon svg { width: 8px !important; height: 8px !important; }
+            .notes-list { gap: 4pt !important; }
+            .notes-list li { font-size: 7.5pt !important; gap: 4pt !important; }
+            .note-num {
+                width: 14px !important;
+                height: 14px !important;
+                min-width: 14px !important;
+                font-size: 5.5pt !important;
+                margin-top: 0 !important;
+            }
+
+            /* === 12. SCREEN FOOTER — shows in print, compact === */
+            .screen-footer { padding: 3mm 8mm !important; }
+            .screen-footer-inner { gap: 1rem !important; }
+            .footer-logo { height: 16px !important; }
+            .footer-brand { gap: 5pt !important; }
+            .footer-tagline { font-size: 6.5pt !important; padding-left: 5pt !important; }
+            .footer-contact { font-size: 6pt !important; line-height: 1.5 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     PRINT HEADER — fixed, shows on every printed page
+     ============================================================ -->
+<div class="print-header">
+    <img src="images/logo-white.png" alt="J.PEER Health" class="ph-logo">
+    <div class="ph-right">
+        <span class="ph-tagline">Heartfelt Care</span>
+        <span class="ph-contact">Care@Jpeerhealth.com &nbsp;·&nbsp; jpeerhealth.com &nbsp;·&nbsp; 0469 371 121</span>
+    </div>
+</div>
+
+<!-- ============================================================
+     PRINT FOOTER — fixed, shows on every printed page
+     ============================================================ -->
+<div class="print-footer">
+    <span>Heartfelt Care &nbsp;·&nbsp; J.PEER Health &nbsp;·&nbsp; ABN 16 683 516 761</span>
+    <span>Care@Jpeerhealth.com &nbsp;·&nbsp; jpeerhealth.com &nbsp;·&nbsp; 0469 371 121</span>
+</div>
+
+
+<div class="doc-wrapper">
+
+    <!-- ============================================================
+         SCREEN HEADER
+         ============================================================ -->
+    <header class="screen-header">
+        <div class="screen-header-inner">
+            <img src="images/logo-white.png" alt="J.PEER Health" class="header-logo">
+            <div class="header-right">
+                <span class="header-tagline">Heartfelt Care</span>
+                <span class="header-contact">Care@Jpeerhealth.com &nbsp;·&nbsp; jpeerhealth.com &nbsp;·&nbsp; 0469 371 121</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         DOCUMENT TITLE
+         ============================================================ -->
+    <div class="title-section">
+        <div class="title-left">
+            <p class="title-eyebrow">Support at Home Program</p>
+            <h1 class="doc-title">Fee <span class="italic-part">Schedule</span></h1>
+            <div class="title-badges">
+                <span class="badge-pill date">
+                    <span class="badge-dot"></span>
+                    Effective 7 April 2026
+                </span>
+                <span class="badge-pill info">All prices inclusive of GST where applicable</span>
+            </div>
+        </div>
+        <div class="title-right">
+            <div class="abn-block">
+                <span class="abn-label">Australian Business Number</span>
+                <span class="abn-value">16&thinsp;683&thinsp;516&thinsp;761</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         TABLE 1 — CLINICAL SUPPORTS
+         ============================================================ -->
+    <table class="fee-table clinical">
+        <thead>
+            <tr class="cat-row">
+                <th colspan="8">
+                    <span class="cat-name">Clinical Supports</span>
+                    <span class="cat-badge">0% Participant Contribution — Fully Government Funded</span>
+                </th>
+            </tr>
+            <tr class="col-row">
+                <th class="th-svc">Service</th>
+                <th class="th-unit">Unit</th>
+                <th>Standard</th>
+                <th>Evening</th>
+                <th>Overnight</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                <th class="th-ph">Public Holiday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Care Management -->
+            <tr class="sub-head"><td colspan="8">Care Management</td></tr>
+            <tr>
+                <td>Home support care management</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$180.00</td>
+                <td class="td-price">$180.00</td>
+                <td class="td-price">$180.00</td>
+                <td class="td-price">$216.00</td>
+                <td class="td-price">$270.00</td>
+                <td class="td-price">$360.00</td>
+            </tr>
+
+            <!-- Nursing Care -->
+            <tr class="sub-head"><td colspan="8">Nursing Care</td></tr>
+            <tr>
+                <td>Registered nurse</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$160.00</td>
+                <td class="td-price">$160.00</td>
+                <td class="td-price">$160.00</td>
+                <td class="td-price">$192.00</td>
+                <td class="td-price">$240.00</td>
+                <td class="td-price">$320.00</td>
+            </tr>
+            <tr>
+                <td>Enrolled nurse</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$144.00</td>
+                <td class="td-price">$180.00</td>
+                <td class="td-price">$240.00</td>
+            </tr>
+            <tr>
+                <td>Nursing assistant</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$150.00</td>
+                <td class="td-price">$200.00</td>
+            </tr>
+            <tr>
+                <td>Nursing care consumables</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$150.00</td>
+                <td class="td-price">$200.00</td>
+            </tr>
+
+            <!-- Allied Health -->
+            <tr class="sub-head"><td colspan="8">Allied Health</td></tr>
+            <tr>
+                <td>Allied health therapy assistance</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$160.00</td>
+                <td class="td-price">$160.00</td>
+                <td class="td-price">$160.00</td>
+                <td class="td-price">$192.00</td>
+                <td class="td-price">$240.00</td>
+                <td class="td-price">$320.00</td>
+            </tr>
+            <tr>
+                <td>Podiatry</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$200.00</td>
+                <td class="td-price">$200.00</td>
+                <td class="td-price">$200.00</td>
+                <td class="td-price">$240.00</td>
+                <td class="td-price">$300.00</td>
+                <td class="td-price">$400.00</td>
+            </tr>
+            <tr>
+                <td>Social work</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$258.00</td>
+                <td class="td-price">$322.50</td>
+                <td class="td-price">$430.00</td>
+            </tr>
+            <tr>
+                <td>Speech pathology</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$230.00</td>
+                <td class="td-price">$230.00</td>
+                <td class="td-price">$230.00</td>
+                <td class="td-price">$276.00</td>
+                <td class="td-price">$345.00</td>
+                <td class="td-price">$460.00</td>
+            </tr>
+            <tr>
+                <td>Diet or nutrition</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$219.00</td>
+                <td class="td-price">$219.00</td>
+                <td class="td-price">$219.00</td>
+                <td class="td-price">$262.80</td>
+                <td class="td-price">$328.50</td>
+                <td class="td-price">$438.00</td>
+            </tr>
+            <tr>
+                <td>Aboriginal &amp; Torres Strait Islander health practitioner assistance</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$235.00</td>
+                <td class="td-price">$235.00</td>
+                <td class="td-price">$235.00</td>
+                <td class="td-price">$282.00</td>
+                <td class="td-price">$352.50</td>
+                <td class="td-price">$470.00</td>
+            </tr>
+            <tr>
+                <td>Aboriginal &amp; Torres Strait Islander health worker assistance</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$235.00</td>
+                <td class="td-price">$235.00</td>
+                <td class="td-price">$235.00</td>
+                <td class="td-price">$282.00</td>
+                <td class="td-price">$352.50</td>
+                <td class="td-price">$470.00</td>
+            </tr>
+            <tr>
+                <td>Physiotherapy</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$252.00</td>
+                <td class="td-price">$315.00</td>
+                <td class="td-price">$420.00</td>
+            </tr>
+            <tr>
+                <td>Psychology</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$250.00</td>
+                <td class="td-price">$250.00</td>
+                <td class="td-price">$250.00</td>
+                <td class="td-price">$300.00</td>
+                <td class="td-price">$375.00</td>
+                <td class="td-price">$500.00</td>
+            </tr>
+            <tr>
+                <td>Exercise physiology</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$258.00</td>
+                <td class="td-price">$322.50</td>
+                <td class="td-price">$430.00</td>
+            </tr>
+            <tr>
+                <td>Occupational therapy</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$220.00</td>
+                <td class="td-price">$220.00</td>
+                <td class="td-price">$220.00</td>
+                <td class="td-price">$264.00</td>
+                <td class="td-price">$330.00</td>
+                <td class="td-price">$440.00</td>
+            </tr>
+            <tr>
+                <td>Counselling or psychotherapy</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$225.00</td>
+                <td class="td-price">$225.00</td>
+                <td class="td-price">$225.00</td>
+                <td class="td-price">$270.00</td>
+                <td class="td-price">$337.50</td>
+                <td class="td-price">$450.00</td>
+            </tr>
+            <tr>
+                <td>Music therapy</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$250.00</td>
+                <td class="td-price">$250.00</td>
+                <td class="td-price">$250.00</td>
+                <td class="td-price">$300.00</td>
+                <td class="td-price">$375.00</td>
+                <td class="td-price">$500.00</td>
+            </tr>
+
+            <!-- Nutrition -->
+            <tr class="sub-head"><td colspan="8">Nutrition</td></tr>
+            <tr class="by-quote">
+                <td>Nutrition supports</td>
+                <td class="td-unit">Item</td>
+                <td colspan="6" class="quote-text">By Item — quoted and agreed in writing before proceeding</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- ============================================================
+         TABLE 2 — INDEPENDENCE SUPPORTS
+         ============================================================ -->
+    <table class="fee-table independence">
+        <thead>
+            <tr class="cat-row">
+                <th colspan="8">
+                    <span class="cat-name">Independence Supports</span>
+                    <span class="cat-badge">Participant Contribution Applies</span>
+                </th>
+            </tr>
+            <tr class="col-row">
+                <th class="th-svc">Service</th>
+                <th class="th-unit">Unit</th>
+                <th>Standard</th>
+                <th>Evening</th>
+                <th>Overnight</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                <th class="th-ph">Public Holiday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Personal Care -->
+            <tr class="sub-head"><td colspan="8">Personal Care</td></tr>
+            <tr>
+                <td>Assistance with self-care and activities of daily living</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Assistance with the self administration of medication</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Continence management (non-clinical)</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+
+            <!-- Social Support -->
+            <tr class="sub-head"><td colspan="8">Social Support &amp; Community Engagement</td></tr>
+            <tr>
+                <td>Group social support</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$55.00</td>
+                <td class="td-price">$55.00</td>
+                <td class="td-price">$55.00</td>
+                <td class="td-price">$66.00</td>
+                <td class="td-price">$82.50</td>
+                <td class="td-price">$110.00</td>
+            </tr>
+            <tr>
+                <td>Individual social support</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Accompanied activities</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Cultural support</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Digital education and support</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Assistance to maintain personal affairs</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+            <tr>
+                <td>Expense to maintain personal affairs</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$98.44</td>
+                <td class="td-price">$118.13</td>
+                <td class="td-price">$147.66</td>
+                <td class="td-price">$196.88</td>
+            </tr>
+
+            <!-- Respite -->
+            <tr class="sub-head"><td colspan="8">Respite</td></tr>
+            <tr>
+                <td>Flexible respite</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$140.00</td>
+                <td class="td-price">$140.00</td>
+                <td class="td-price">$140.00</td>
+                <td class="td-price">$168.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$280.00</td>
+            </tr>
+            <tr>
+                <td>Community and centre based respite</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$140.00</td>
+                <td class="td-price">$140.00</td>
+                <td class="td-price">$140.00</td>
+                <td class="td-price">$168.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$280.00</td>
+            </tr>
+
+            <!-- Therapeutic Services -->
+            <tr class="sub-head"><td colspan="8">Therapeutic Services</td></tr>
+            <tr>
+                <td>Acupuncturist</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$252.00</td>
+                <td class="td-price">$315.00</td>
+                <td class="td-price">$420.00</td>
+            </tr>
+            <tr>
+                <td>Chiropractor</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$258.00</td>
+                <td class="td-price">$322.50</td>
+                <td class="td-price">$430.00</td>
+            </tr>
+            <tr>
+                <td>Diversional therapist</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$258.00</td>
+                <td class="td-price">$322.50</td>
+                <td class="td-price">$430.00</td>
+            </tr>
+            <tr>
+                <td>Remedial masseuse</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$200.00</td>
+                <td class="td-price">$200.00</td>
+                <td class="td-price">$200.00</td>
+                <td class="td-price">$240.00</td>
+                <td class="td-price">$300.00</td>
+                <td class="td-price">$400.00</td>
+            </tr>
+            <tr>
+                <td>Art therapist</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$215.00</td>
+                <td class="td-price">$258.00</td>
+                <td class="td-price">$322.50</td>
+                <td class="td-price">$430.00</td>
+            </tr>
+            <tr>
+                <td>Osteopath</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$210.00</td>
+                <td class="td-price">$252.00</td>
+                <td class="td-price">$315.00</td>
+                <td class="td-price">$420.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- ============================================================
+         TABLE 3 — EVERYDAY LIVING
+         ============================================================ -->
+    <table class="fee-table everyday">
+        <thead>
+            <tr class="cat-row">
+                <th colspan="8">
+                    <span class="cat-name">Everyday Living</span>
+                    <span class="cat-badge">Participant Contribution Applies</span>
+                </th>
+            </tr>
+            <tr class="col-row">
+                <th class="th-svc">Service</th>
+                <th class="th-unit">Unit</th>
+                <th>Standard</th>
+                <th>Evening</th>
+                <th>Overnight</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                <th class="th-ph">Public Holiday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Transport -->
+            <tr class="sub-head"><td colspan="8">Transport</td></tr>
+            <tr>
+                <td>Direct transport</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$100.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$150.00</td>
+                <td class="td-price">$200.00</td>
+            </tr>
+            <tr class="by-quote">
+                <td>Indirect transport</td>
+                <td class="td-unit">Trip</td>
+                <td colspan="6" class="quote-text">By Trip — quoted and agreed in writing before proceeding</td>
+            </tr>
+
+            <!-- Domestic Assistance -->
+            <tr class="sub-head"><td colspan="8">Domestic Assistance</td></tr>
+            <tr>
+                <td>General house cleaning</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$132.00</td>
+                <td class="td-price">$165.00</td>
+                <td class="td-price">$220.00</td>
+            </tr>
+            <tr>
+                <td>Laundry services</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$132.00</td>
+                <td class="td-price">$165.00</td>
+                <td class="td-price">$220.00</td>
+            </tr>
+            <tr>
+                <td>Shopping assistance</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$132.00</td>
+                <td class="td-price">$165.00</td>
+                <td class="td-price">$220.00</td>
+            </tr>
+
+            <!-- Home Maintenance -->
+            <tr class="sub-head"><td colspan="8">Home Maintenance &amp; Repairs</td></tr>
+            <tr>
+                <td>Gardening</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$144.00</td>
+                <td class="td-price">$180.00</td>
+                <td class="td-price">$240.00</td>
+            </tr>
+            <tr>
+                <td>Assistance with home maintenance and repairs</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$120.00</td>
+                <td class="td-price">$144.00</td>
+                <td class="td-price">$180.00</td>
+                <td class="td-price">$240.00</td>
+            </tr>
+            <tr class="by-quote">
+                <td>Expenses for home maintenance and repairs</td>
+                <td class="td-unit">Item</td>
+                <td colspan="6" class="quote-text">By Item — quoted and agreed in writing before proceeding</td>
+            </tr>
+
+            <!-- Meals -->
+            <tr class="sub-head"><td colspan="8">Meals</td></tr>
+            <tr>
+                <td>Meal preparation</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$110.00</td>
+                <td class="td-price">$132.00</td>
+                <td class="td-price">$165.00</td>
+                <td class="td-price">$220.00</td>
+            </tr>
+            <tr>
+                <td>Meal delivery</td>
+                <td class="td-unit">Hour</td>
+                <td class="td-price">$25.00</td>
+                <td class="td-price">$25.00</td>
+                <td class="td-price">$25.00</td>
+                <td class="td-price">$30.00</td>
+                <td class="td-price">$37.50</td>
+                <td class="td-price">$50.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- ============================================================
+         IMPORTANT NOTES
+         ============================================================ -->
+    <div class="notes-section">
+        <div class="notes-heading">
+            <span class="notes-icon">
+                <svg viewBox="0 0 11 11" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="5.5" cy="3" r="1.1"/>
+                    <rect x="4.5" y="5.2" width="2" height="4" rx="0.6"/>
+                </svg>
+            </span>
+            <span class="notes-heading-text">Important <span class="italic-accent">Notes</span></span>
+        </div>
+        <ul class="notes-list">
+            <li>
+                <span class="note-num">1</span>
+                <span>For services with unknown costs — such as ad-hoc allied health or assistive technology — J.PEER Health will notify the participant in writing once the price is known and obtain their agreement before proceeding.</span>
+            </li>
+            <li>
+                <span class="note-num">2</span>
+                <span>J.PEER Health's service fees will increase in line with any scheduled increases to the government subsidy. The rate adjustment will be effective from the date the new subsidy takes effect. The revised rate and the reason for the increase will be reviewed and communicated to the participant in writing prior to implementation.</span>
+            </li>
+            <li>
+                <span class="note-num">3</span>
+                <span>All prices are inclusive of GST where applicable.</span>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- ============================================================
+         SCREEN FOOTER
+         ============================================================ -->
+    <footer class="screen-footer">
+        <div class="screen-footer-inner">
+            <div class="footer-brand">
+                <img src="images/logo-white.png" alt="J.PEER Health" class="footer-logo">
+                <span class="footer-tagline">Heartfelt Care</span>
+            </div>
+            <div class="footer-contact">
+                <p>J.PEER Health &nbsp;·&nbsp; ABN 16&thinsp;683&thinsp;516&thinsp;761</p>
+                <p>Care@Jpeerhealth.com &nbsp;·&nbsp; jpeerhealth.com &nbsp;·&nbsp; 0469 371 121</p>
+            </div>
+        </div>
+    </footer>
+
+</div><!-- /.doc-wrapper -->
+</body>
+</html>
